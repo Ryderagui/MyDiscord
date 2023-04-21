@@ -1,6 +1,9 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+
+  Jbuilder.key_format camelize: :lower
+  Jbuilder.deep_format_keys true
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

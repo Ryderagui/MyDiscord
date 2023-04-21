@@ -2,7 +2,7 @@ class Api::SessionsController < ApplicationController
   def show
     if(current_user)
       @user = current_user
-      render json: {user: @user[:username]}
+      render 'api/users/show'
     else 
       render json: {message:"No User"}
     end
@@ -14,7 +14,7 @@ class Api::SessionsController < ApplicationController
     @user = User.find_by_credentials(credential,password)
     if(@user)
       login!(@user)
-      render json: {user: @user[:username]}
+      render 'api/users/show'
     else
       render json: { message: 'Fail' }, status: :unauthorized
     end
@@ -24,7 +24,7 @@ class Api::SessionsController < ApplicationController
   def destroy
     if(current_user)
         logout!
-        render json: {message: 'success'}
+        render 'api/users/show'
     else
       render json: {message: 'No Login'}
     end
