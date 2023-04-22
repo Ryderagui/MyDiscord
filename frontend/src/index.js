@@ -33,7 +33,12 @@ const renderApplication = () => {
     document.getElementById('root')
 );
 }
-if(sessionStorage.getItem("X-CSRF-Token") === null){
-  restoreCSRF().then(renderApplication);
-}else{
-renderApplication()};
+if(
+  sessionStorage.getItem("X-CSRF-Token") === null ||
+  sessionStorage.getItem("currentUserId") === null
+  ){
+  store.dispatch(sessionActions.restoreSession()).then(renderApplication);
+} else {
+  renderApplication(); 
+
+};
