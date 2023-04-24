@@ -41,4 +41,4 @@ if(
 } else {
   renderApplication(); 
 
-};
+}; 
