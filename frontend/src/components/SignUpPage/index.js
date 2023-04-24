@@ -12,9 +12,9 @@ function SignUpPage () {
     const [matchPassword,setMatchPassword] = useState('');
     const [errors, setErrors] = useState([]);
 
-    // if (currentUser){
-    //     return <Redirect to="/"/>
-    // }
+    if (currentUser){
+        return <Redirect to="/"/>
+    }
 
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -24,7 +24,7 @@ function SignUpPage () {
             username: username,
             password: password
         }
-        return dispatch(sessionActions.login(user))
+        return dispatch(sessionActions.signup(user))
         }
     }
     return (
