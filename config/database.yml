@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: MyDiscord_production
-  username: MyDiscord
-  password: <%= ENV["MYDISCORD_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
