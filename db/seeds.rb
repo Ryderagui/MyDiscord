@@ -8,6 +8,7 @@
 
 ApplicationRecord.transaction do
     User.destroy_all
+    Community.destroy_all
     ApplicationRecord.connection.reset_pk_sequence!('users')
     User.create!(
         username: "Patrick",
@@ -19,6 +20,12 @@ ApplicationRecord.transaction do
         username: "Jane",
         email: "Tracy@gmail.com",
         password: "tiktok"
+    )
+
+    Community.create!(
+        title: "App Academy",
+        type: true,
+        user_id: 1
     )
 
 end

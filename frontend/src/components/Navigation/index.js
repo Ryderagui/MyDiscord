@@ -5,7 +5,7 @@ import LogoutButton from "../LogoutButton";
 import UserButton from "../UserButton";
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
-
+import {FaDiscord} from "react-icons/fa"
 
 function Navigation () {
     const currentUser = useSelector(sessionActions.getUser)
@@ -36,7 +36,9 @@ function Navigation () {
     return(
         <ul className="navbar">
             <li>
-            <NavLink to="/" className="link"><img className="logo" scr="/assets/DiscordLogo.png" alt=""/>Home</NavLink>
+            <NavLink to="/" className="link">
+            <div><FaDiscord/></div>
+            </NavLink>
             </li>
             {links}
         </ul>

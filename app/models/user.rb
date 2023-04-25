@@ -24,6 +24,12 @@ class User < ApplicationRecord
         token
     end
 
+    has_many :created_communities,
+        foreign_key: :user_id,
+        class_name: :Community
+    
+
+
     private
 
     def generate_unique_session_token
