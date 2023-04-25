@@ -1,0 +1,17 @@
+.navbar {
+    display: flex;
+    background-color: purple;
+
+}
+
+li {
+    padding: 3px;
+    margin: 3px;
+    list-style: none;
+}
+
+.link {
+    color: white;
+    font-weight: bold;
+    
+}

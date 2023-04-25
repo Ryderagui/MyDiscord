@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import LogoutButton from "../LogoutButton";
 import UserButton from "../UserButton";
 import * as sessionActions from '../../store/session';
+import './Navigation.css';
+
 
 function Navigation () {
     const currentUser = useSelector(sessionActions.getUser)
@@ -11,27 +13,32 @@ function Navigation () {
     if(currentUser){    
         links = (
             <>
+            <li>
             <UserButton user={currentUser}/>
-            <LogoutButton />
+            </li>
+            <li><LogoutButton/></li>
             </>
         )
     }else {
         links = (
             <>
-            <NavLink to="/login">Log In</NavLink>
-            <NavLink to="/signup">Sign Up</NavLink>
+            <li>
+            <NavLink to="/login" className="link">Log In</NavLink>
+            </li>
+            <li>
+            <NavLink to="/signup" className="link">Sign Up</NavLink>
+            </li>
             </>
+            
         )
     }
 
     return(
-        <ul>
+        <ul className="navbar">
             <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/" className="link"><img className="logo" scr="/assets/DiscordLogo.png" alt=""/>Home</NavLink>
             </li>
-            <li>
             {links}
-            </li>
         </ul>
     )
 };

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-
+import './SignUpPage.css'
 function SignUpPage () {
     const dispatch = useDispatch();
     const currentUser = useSelector(sessionActions.getUser)
@@ -24,29 +24,41 @@ function SignUpPage () {
             username: username,
             password: password
         }
-        return dispatch(sessionActions.signup(user))
-        }
+        return dispatch(sessionActions.signup(user)).catch(async (res) => {
+            let data = await res.json();
+            if(data?.errors) {setErrors(data.errors)}
+            else if (data) {setErrors([data])}
+            else setErrors([res.statusText]);
+        });
     }
+    return setErrors(['Confirm Password must match the Password provided'])
+    };
     return (
         <form onSubmit={handleSubmit}>
         <label>Email
         <input type="text" value={email} 
-        onChange={(e)=>{setEmail(e.target.value)}}/>
+        onChange={(e)=>{setEmail(e.target.value)}}
+        required/>
         </label>
         <label>Username
         <input type="text" value={username} 
-        onChange={(e)=>{setUsername(e.target.value)}}/>
+        onChange={(e)=>{setUsername(e.target.value)}}
+        required/>
         </label>
         <label>Password
         <input type="password" value={password} 
-        onChange={(e)=>{setPassword(e.target.value)}}/>
+        onChange={(e)=>{setPassword(e.target.value)}}
+        required/>
         </label>
         <label>Confirm Password
         <input type="password" value={matchPassword} 
-        onChange={(e)=>{setMatchPassword(e.target.value)}}/>
+        onChange={(e)=>{setMatchPassword(e.target.value)}}
+        required/>
         </label>
         <button type="submit">Sign Up</button>
-        </form>        
+        <ul className='errors'>{errors.map((error)=>{return <li key={error}>{error}</li>})}</ul>
+        </form>
+               
     )
 };
 

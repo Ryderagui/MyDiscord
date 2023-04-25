@@ -7,8 +7,8 @@ import Navigation from './components/Navigation';
 function App() {
   return (
     <>
-    <h1>Hello from App</h1>
-    <Navigation/>
+     <Navigation/>
+    <h1>Revel</h1>
       <Switch>
         <Route exact path="/" />
         <Route path="/login/" component={LoginFormPage}/>

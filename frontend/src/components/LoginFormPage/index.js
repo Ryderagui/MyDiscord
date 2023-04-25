@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import "./LoginFormPage.css"
 
 function LoginFormPage () {
     const dispatch = useDispatch();
@@ -20,19 +21,29 @@ function LoginFormPage () {
             credential: credential,
             password: password
         }
-        return dispatch(sessionActions.login(user))
+        setErrors([]);
+        return dispatch(sessionActions.login(user)).catch(async (res) => {
+            let data = await res.json();
+            if(data?.errors) {setErrors(data.errors)}
+            else if (data) {setErrors([data])}
+            else setErrors([res.statusText]);
+            console.log(errors,"errors")
+        });
     }
     return (
         <form onSubmit={handleSubmit}>
-        <label>Username or Email
+        <label className='input'>Username or Email
         <input type="text" value={credential} 
-        onChange={(e)=>{setCredential(e.target.value)}}/>
+        onChange={(e)=>{setCredential(e.target.value)}}
+        required/>
         </label>
-        <label>Password
+        <label className='input'>Password
         <input type="password" value={password} 
-        onChange={(e)=>{setPassword(e.target.value)}}/>
+        onChange={(e)=>{setPassword(e.target.value)}}
+        required/>
         </label>
-        <button type="submit">Log In</button>
+        <button className="button" type="submit">Log In</button>
+        <ul className='errors'>{errors.map((error)=>{return <li key={error}>{error}</li>})}</ul>
         </form>        
     )
 };

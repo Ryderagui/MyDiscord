@@ -1,0 +1,12 @@
+form {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    width: 20vh;
+    height: 10vh;
+}
+
+button {
+    width: 100px;
+    height: 50px;
+}
