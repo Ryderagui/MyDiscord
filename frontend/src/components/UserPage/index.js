@@ -6,6 +6,7 @@ import * as communityActions from '../../store/community';
 import * as sessionActions from '../../store/session';
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { Redirect } from "react-router-dom/cjs/react-router-dom";
+import CommunityList from "../CommunityList";
 
 
 function UserPage () {
@@ -22,6 +23,7 @@ function UserPage () {
         <div className="container">
             <div className="list">
             <h2>Community List</h2>
+            <CommunityList/>
             </div>
             <div className="communityShow">
             <h2>Community Show</h2>

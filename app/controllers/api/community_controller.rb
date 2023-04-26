@@ -1,5 +1,5 @@
-class Api::CommunitiesController < ApplicationController
-  before_action :require_logged_in
+class Api::CommunityController < ApplicationController
+  # before_action :require_logged_in
 
   def index 
     @user = current_user
@@ -9,7 +9,7 @@ class Api::CommunitiesController < ApplicationController
   end
 
   def show
-    @community = Community.find_by(:id params[:id])
+    @community = Community.find_by(id: params["id"])
     render :show
   end
 
@@ -24,7 +24,7 @@ class Api::CommunitiesController < ApplicationController
   end
 
   def destroy
-    @community = Community.find_by(:id params[:id])
+    @community = Community.find_by(id: params[:id])
     if(Community.destroy(@community.id))
       render :index
     else

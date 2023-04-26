@@ -1,13 +1,14 @@
 import { useDispatch,useSelector } from "react-redux";
-import { useState,useEffect, } from "react";
+import { useEffect, } from "react";
 import * as communityActions from '../../store/community';
+import CommunityItem from "../CommunityItem";
 
 
 
 function CommunityList () {
     const dispatch = useDispatch();
-    const communities = useSelector(communityActions.getCommunities())
-
+    const communities = useSelector(communityActions.getCommunities)
+    console.log(communities,"communities in ComList")
     useEffect(()=>{
         dispatch(communityActions.fetchCommunities())
     },[dispatch])
@@ -17,7 +18,7 @@ function CommunityList () {
     return (
         <ul>
             {communities.map((comm)=>{
-                return <li>{comm.title}</li>
+                return <CommunityItem key={comm.id} community={comm}/>
             })}
         </ul>
     )

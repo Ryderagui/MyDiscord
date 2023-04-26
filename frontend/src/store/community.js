@@ -60,23 +60,24 @@ export const getCommunities = (state)=>{
 }
 
 export const fetchCommunities = ()=>async dispatch=>{
-    let res = await csrfFetch('api/community/')
+    let res = await csrfFetch('/api/community/')
+    if(res.ok){
+        let data = await res.json();
+        console.log(data,"Communities")
+        dispatch(addCommunities(data));
+    }
+}
+
+export const fetchCommunity = (communityId)=>async dispatch =>{
+    let res = await csrfFetch(`/api/community/${communityId}`)
     if(res.ok){
         let data = await res.json();
         dispatch(addCommunity(data));
     }
 }
 
-export const fetchCommunity = (communityId)=>async dispatch =>{
-    let res = await csrfFetch(`api/community/${communityId}`)
-    if(res.ok){
-        let data = await res.json();
-        dispatch(addCommunities(data));
-    }
-}
-
 export const createCommunities = (communities)=>async dispatch =>{
-    let res = await csrfFetch(`api/Communitiess/`,{
+    let res = await csrfFetch(`/api/community/`,{
         method: "POST",
         body: JSON.stringify(communities),
         headers: {
@@ -91,7 +92,7 @@ export const createCommunities = (communities)=>async dispatch =>{
 
 export const updateCommunities = (communities)=> async dispatch =>{
     let communitiesId = communities.id;
-    let res = await csrfFetch(`api/community/${communitiesId}`,{
+    let res = await csrfFetch(`/api/community/${communitiesId}`,{
         method: "PATCH",
         body: JSON.stringify(communities),
         headers: {
@@ -104,7 +105,7 @@ export const updateCommunities = (communities)=> async dispatch =>{
     }
 }
 export const deleteCommunities = (communitiesId)=>async dispatch =>{
-    let res = await csrfFetch(`api/Communitiess/${communitiesId}`,{
+    let res = await csrfFetch(`/api/Communitiess/${communitiesId}`,{
         method: "DELETE",
     })
     if(res.ok){
