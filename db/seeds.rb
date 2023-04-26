@@ -28,4 +28,22 @@ ApplicationRecord.transaction do
         user_id: 1
     )
 
+    Community.create!(
+        title: "NBA",
+        privacy: true,
+        user_id: 1
+    )
+
+    Community.create!(
+        title: "Golden State",
+        privacy: true,
+        user_id: 1
+    )
+
+    Community.create!(
+        title: "Chess",
+        privacy: true,
+        user_id: 1
+    )
+
 end

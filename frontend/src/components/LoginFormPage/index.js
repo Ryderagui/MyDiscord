@@ -12,7 +12,7 @@ function LoginFormPage () {
     const [errors, setErrors] = useState([]);
 
     if (currentUser){
-        return <Redirect to="/"/>
+        return <Redirect to={`/users/${currentUser}`}/>
     }
 
     const handleSubmit = (e) =>{
@@ -32,6 +32,7 @@ function LoginFormPage () {
     }
     return (
         <form onSubmit={handleSubmit}>
+        <h2>Log In!</h2>
         <label className='input'>Username or Email
         <input type="text" value={credential} 
         onChange={(e)=>{setCredential(e.target.value)}}

@@ -13,7 +13,7 @@ function SignUpPage () {
     const [errors, setErrors] = useState([]);
 
     if (currentUser){
-        return <Redirect to="/"/>
+        return <Redirect to={`/users/${currentUser}`}/>
     }
 
     const handleSubmit = (e) =>{
@@ -35,6 +35,7 @@ function SignUpPage () {
     };
     return (
         <form onSubmit={handleSubmit}>
+        <h2>Sign Up!</h2>
         <label>Email
         <input type="text" value={email} 
         onChange={(e)=>{setEmail(e.target.value)}}

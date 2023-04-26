@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom/cjs/react-router-dom.min";
 import { useSelector } from "react-redux";
 import LogoutButton from "../LogoutButton";
-import UserButton from "../UserButton";
 import * as sessionActions from '../../store/session';
 import './Navigation.css';
 import {FaDiscord} from "react-icons/fa"
@@ -13,9 +12,6 @@ function Navigation () {
     if(currentUser){    
         links = (
             <>
-            <li>
-            <UserButton user={currentUser}/>
-            </li>
             <li><LogoutButton/></li>
             </>
         )

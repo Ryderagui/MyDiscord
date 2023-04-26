@@ -4,9 +4,16 @@ form {
     flex-direction: column;
     width: 20vh;
     height: 10vh;
+    margin-left: 40%;
+    margin-top: 30vh;
+    
 }
 
 button {
     width: 100px;
     height: 50px;
+}
+
+h2 {
+    align-self: center;
 }

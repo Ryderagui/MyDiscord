@@ -14,3 +14,7 @@ button {
 .errors {
     color: Red
 }
+
+h2 {
+    align-self: center;
+}
