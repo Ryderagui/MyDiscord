@@ -24,7 +24,7 @@ ApplicationRecord.transaction do
 
     Community.create!(
         title: "App Academy",
-        type: true,
+        privacy: true,
         user_id: 1
     )
 

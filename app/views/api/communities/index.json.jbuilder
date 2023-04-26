@@ -1,1 +1,1 @@
-json.communities @community,:id, :title, :type, :user_id,  :created_at, :updated_at
+json.communities @community,:id, :title, :privacy, :user_id,  :created_at, :updated_at
