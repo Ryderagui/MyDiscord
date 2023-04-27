@@ -4,13 +4,13 @@ import * as communityActions from '../../store/community';
 import "./CommunityPage.css"
 import { BsFillGearFill } from "react-icons/bs";
 import { useState } from "react";
+import CommunityEditForm from "../CommunityEditForm";
 
 
 function CommunityPage () {
     const {communityid} = useParams();
     const community = useSelector(communityActions.getCommunity(communityid));
-    const [showMenu,setShowMenu] = useState(false);
-
+    const [openEdit,setOpenEdit] = useState(false);
 
 
 
@@ -18,9 +18,9 @@ function CommunityPage () {
         <div className="communityContainer">
         <div className="communityTitle">
         <h2 className="titleText">{community && community.title}</h2>
-        <BsFillGearFill size={30}/>
+        <BsFillGearFill size={30} onClick={()=>{setOpenEdit(true)}}/>
+        {openEdit && <CommunityEditForm setOpenEdit={setOpenEdit}/>}
         </div>
-        
         <h3>General</h3>
         </div>
     )

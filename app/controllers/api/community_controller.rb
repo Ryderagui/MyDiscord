@@ -23,6 +23,17 @@ class Api::CommunityController < ApplicationController
     end
   end
 
+  def update
+    @community = Community.find_by(id: params["id"])
+    puts @community
+    if(@community && @community.update(community_params))
+        render :show
+    else
+        render json: { errors: @community.errors.full_messages}, status: :unprocessable_entity 
+    end
+  end
+
+
   def destroy
     @community = Community.find_by(id: params["id"])
     puts @community

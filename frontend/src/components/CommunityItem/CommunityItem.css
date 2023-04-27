@@ -1,10 +1,20 @@
 .communityItem {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    background: darkblue;
     margin: 5px;
     margin-left: 0px;
+    align-content: center;
+    justify-content: center;
+}
 
+.communityLink {
+    justify-self: center;
+    padding-left: 9px;
+    padding-top: 9px;
+    color: white;
+    font-size: 30px;
+    border-radius: 50%;
+    background: darkblue;
+    width: 65px;
+    height: 65px;
+    border: none;
 
 }

@@ -92,7 +92,7 @@ export const createCommunities = (communities)=>async dispatch =>{
 
 export const updateCommunities = (communities)=> async dispatch =>{
     let communitiesId = communities.id;
-    let res = await csrfFetch(`/api/community/${communitiesId}`,{
+    let res = await csrfFetch(`/api/community/${communities.id}`,{
         method: "PATCH",
         body: JSON.stringify(communities),
         headers: {
