@@ -7,11 +7,12 @@ import * as sessionActions from '../../store/session';
 import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { Redirect } from "react-router-dom/cjs/react-router-dom";
 import CommunityList from "../CommunityList";
-
+import CommunityPage from "../CommunityPage";
+import UserProfileButton from "../UserProfileButton";
 
 function UserPage () {
     const dispatch = useDispatch;
-    const { userId } = useParams();
+    const { userid } = useParams();
     const currentUser = useSelector(sessionActions.getUser);
 
     if (currentUser === null){
@@ -22,11 +23,11 @@ function UserPage () {
     return(
         <div className="container">
             <div className="list">
-            <h2>Community List</h2>
+            <UserProfileButton/>
             <CommunityList/>
             </div>
             <div className="communityShow">
-            <h2>Community Show</h2>
+            <CommunityPage />
             </div>
             <div className="channelArea">
             <Navigation/>

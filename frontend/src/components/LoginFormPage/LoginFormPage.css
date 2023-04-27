@@ -1,19 +1,36 @@
-form {
+.loginForm {
     display: flex;
     align-content: center;
     flex-direction: column;
-    width: 20vh;
-    height: 10vh;
+    width: 15vh;
+    height: 22vh;
     margin-left: 40%;
-    margin-top: 30vh;
-    
+    margin-top: 10vh;
+    background-color: grey;
+    border-radius: 5px;
+    border: 1 px solid silver;
 }
 
-button {
+
+.button {
     width: 100px;
     height: 50px;
+    border-radius: 4px;
+    justify-self: center;
+    align-self: center;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(91, 179, 247);
+    color: white;
 }
 
 h2 {
     align-self: center;
+    color: white;
+}
+
+label {
+    color: white;
+    padding: 3px;
+    justify-self: center;
 }

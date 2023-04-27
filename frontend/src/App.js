@@ -13,7 +13,9 @@ function App() {
         <Route exact path="/" component={FrontPage}/>
         <Route path="/login/" component={LoginFormPage}/>
         <Route path="/signup/" component={SignUpPage}/>
+        <Route path="/users/:userid/:communityid" component={UserPage} />
         <Route path="/users/:userid" component={UserPage} />
+        
       </Switch>
     </>
   );

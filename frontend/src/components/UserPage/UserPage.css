@@ -1,7 +1,19 @@
 .container {
     display: flex;
+    background: da
 }
 
 .channelArea {
-    width: 100%;
+    width: 80%;
+}
+
+.communityShow {
+    width: 20%;
+    background-color: lightgray;
+}
+
+.list {
+    width: auto;
+    background-color:grey;
+    height: 200vh;
 }

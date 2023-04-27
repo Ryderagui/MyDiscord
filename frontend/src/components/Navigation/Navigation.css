@@ -1,7 +1,10 @@
 .navbar {
     display: flex;
     background-color: purple;
-
+    justify-content: right;
+    margin: 0;
+    height: 50px;
+   
 }
 
 li {
@@ -14,4 +17,22 @@ li {
     color: white;
     font-weight: bold;
     
+}
+
+.navbar .logo {
+    height: 50px;
+    width: 50px;
+    color: white;
+}
+
+button2 {
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+    justify-self: center;
+    align-self: center;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(91, 179, 247);
+    color: white;
 }

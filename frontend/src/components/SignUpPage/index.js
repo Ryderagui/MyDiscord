@@ -34,7 +34,7 @@ function SignUpPage () {
     return setErrors(['Confirm Password must match the Password provided'])
     };
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='signInForm' onSubmit={handleSubmit}>
         <h2>Sign Up!</h2>
         <label>Email
         <input type="text" value={email} 

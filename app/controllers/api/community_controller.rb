@@ -24,9 +24,10 @@ class Api::CommunityController < ApplicationController
   end
 
   def destroy
-    @community = Community.find_by(id: params[:id])
+    @community = Community.find_by(id: params["id"])
+    puts @community
     if(Community.destroy(@community.id))
-      render :index
+      render json: {communityId: @community.id}
     else
       render json: { errors: ['Issue with Delete']}, status: :unprocessable_entity
     end

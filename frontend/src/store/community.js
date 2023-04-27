@@ -105,7 +105,7 @@ export const updateCommunities = (communities)=> async dispatch =>{
     }
 }
 export const deleteCommunities = (communitiesId)=>async dispatch =>{
-    let res = await csrfFetch(`/api/Communitiess/${communitiesId}`,{
+    let res = await csrfFetch(`/api/community/${communitiesId}`,{
         method: "DELETE",
     })
     if(res.ok){

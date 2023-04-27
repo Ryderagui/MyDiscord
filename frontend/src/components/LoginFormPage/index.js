@@ -27,25 +27,40 @@ function LoginFormPage () {
             if(data?.errors) {setErrors(data.errors)}
             else if (data) {setErrors([data])}
             else setErrors([res.statusText]);
-            console.log(errors,"errors")
         });
     }
+
+    const handleDemo = (e) => {
+        e.preventDefault();
+
+        let user = {
+            credential: "Patrick",
+            password: "password"
+        }
+        return dispatch(sessionActions.login(user))
+    }
+
     return (
-        <form onSubmit={handleSubmit}>
+        <div className='backgroundLogin'>
+        <form className="loginForm" onSubmit={handleSubmit}>
         <h2>Log In!</h2>
-        <label className='input'>Username or Email
-        <input type="text" value={credential} 
+        <label>Username or Email
+        <input  className='loginInput' type="text" value={credential} 
         onChange={(e)=>{setCredential(e.target.value)}}
         required/>
         </label>
-        <label className='input'>Password
-        <input type="password" value={password} 
+        <label>Password
+        <input className='loginInput' type="password" value={password} 
         onChange={(e)=>{setPassword(e.target.value)}}
         required/>
         </label>
         <button className="button" type="submit">Log In</button>
+        <button className="button" type="button" onClick={handleDemo}>Demo User</button>
         <ul className='errors'>{errors.map((error)=>{return <li key={error}>{error}</li>})}</ul>
-        </form>        
+        
+        </form> 
+        
+        </div>       
     )
 };
 

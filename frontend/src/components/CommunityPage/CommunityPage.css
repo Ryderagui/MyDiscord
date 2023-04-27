@@ -1,0 +1,15 @@
+.communityTitle {
+   margin: 0px;
+   padding: 3px;
+   border-bottom: 3px solid darkgray;
+   height: 41px;
+   color: black;
+   display: flex;
+}
+
+.titleText {
+    color: black;
+    margin: 0px;
+    margin-right: 20px;
+}
+

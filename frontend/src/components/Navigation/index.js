@@ -19,10 +19,14 @@ function Navigation () {
         links = (
             <>
             <li>
-            <NavLink to="/login" className="link">Log In</NavLink>
+            <NavLink to="/login" className="link">
+            <button class="button2" >Log In</button>
+            </NavLink>
             </li>
             <li>
-            <NavLink to="/signup" className="link">Sign Up</NavLink>
+            <NavLink to="/signup" className="link">
+            <button class="button2" >Sign Up</button>
+            </NavLink>
             </li>
             </>
             
@@ -32,8 +36,8 @@ function Navigation () {
     return(
         <ul className="navbar">
             <li>
-            <NavLink to="/" className="link">
-            <div><FaDiscord/></div>
+            <NavLink to="/" className="logo">
+            <div><FaDiscord size={25}/></div>
             </NavLink>
             </li>
             {links}
