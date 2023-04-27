@@ -3,10 +3,13 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import * as communityActions from '../../store/community';
 import "./CommunityPage.css"
 import { BsFillGearFill } from "react-icons/bs";
+import { useState } from "react";
+
 
 function CommunityPage () {
     const {communityid} = useParams();
     const community = useSelector(communityActions.getCommunity(communityid));
+    const [showMenu,setShowMenu] = useState(false);
 
 
 

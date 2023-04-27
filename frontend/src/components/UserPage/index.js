@@ -14,11 +14,13 @@ function UserPage () {
     const dispatch = useDispatch;
     const { userid } = useParams();
     const currentUser = useSelector(sessionActions.getUser);
+    
 
     if (currentUser === null){
         return <Redirect to={`/`}/>
     }
 
+    
 
     return(
         <div className="container">
