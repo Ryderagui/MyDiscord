@@ -1,0 +1,27 @@
+.communityFormBackground {
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+.communityFormContainer {
+    width: 33vh;
+    height: 33vh;
+    border-radius: 12px;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.communityFormContainer > form {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    width: 30vh;
+    height: 30vh;
+    align-items: center;
+}

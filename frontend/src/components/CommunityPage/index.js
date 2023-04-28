@@ -7,22 +7,26 @@ import { BsFillGearFill } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import CommunityEditForm from "../CommunityEditForm";
 import channelReducer from "../../store/channel";
-import { AiOutlinePlus } from "react-icons/ai";
-
+import { AiOutlinePlus, AiOutlineClose } from "react-icons/ai";
+import ChannelForm from "../ChannelForm";
+import ChannelItem from "../ChannelItem";
 
 function CommunityPage () {
     const dispatch = useDispatch();
     const {communityid} = useParams();
     const community = useSelector(communityActions.getCommunity(communityid));
     const [openEdit,setOpenEdit] = useState(false);
-    const channels = useSelector(channelActions.getChannels);
+    const channel = useSelector(channelActions.getChannels);
+    const [openNewChannel,setOpenNewChannel] = useState(false);
 
     useEffect(()=>{
 
         dispatch(channelActions.fetchChannels(communityid))
 
     },[dispatch,communityid])
+    const handleDeleteChannel = (e)=> {
 
+    }
     return (
         <div className="communityContainer">
         <div className="communityTitle">
@@ -31,10 +35,11 @@ function CommunityPage () {
         {openEdit && <CommunityEditForm setOpenEdit={setOpenEdit}/>}
         </div>
         <h3 className="textHeader">Text Channels</h3>
-        <AiOutlinePlus/>
+        <AiOutlinePlus size={30} onClick={()=>{channel && setOpenNewChannel(true)}}/>
+        {openNewChannel && <ChannelForm setOpenNewChannel={setOpenNewChannel}/>}
         <ul>
-        {channels.map((channel)=>{
-            return <li>{channel.title}</li>
+        {channel.map((chan)=>{
+            return <ChannelItem channel={chan} key={chan.id}/>
         })}
         </ul>
         </div>

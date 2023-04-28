@@ -14,8 +14,9 @@ class Api::CommunityController < ApplicationController
   end
 
   def create
+    self.current_user();
     @community = Community.new(community_params)
-    @community.user_id = current_user.id
+    @community.user_id = @current_user.id
     if(@community.save)
         render :show
     else
