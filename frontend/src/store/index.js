@@ -3,11 +3,13 @@ import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import communityReducer from './community';
 import channelReducer from './channel';
+import messageReducer from './message';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     communities: communityReducer,
-    channels: channelReducer
+    channels: channelReducer,
+    messages: messageReducer
 });
 
 let enhancer = applyMiddleware(thunk);

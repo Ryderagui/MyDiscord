@@ -9,7 +9,7 @@ import csrfFetch, { restoreCSRF } from './store/csrf';
 import * as sessionActions from './store/session'
 import * as communityActions from './store/community'
 import * as channelActions from './store/channel'
-
+import * as messageActions from './store/message'
 
 const store = configureStore();
 if (process.env.NODE_ENV !== 'production') {
@@ -18,6 +18,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.sessionActions = sessionActions;
   window.communityActions = communityActions;
   window.channelActions = channelActions;
+  window.messageActions = messageActions;
 }
 
 function Root () {

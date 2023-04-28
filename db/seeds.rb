@@ -7,11 +7,15 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 ApplicationRecord.transaction do
+    Message.destroy_all
     Channel.destroy_all
     Community.destroy_all
     User.destroy_all
     ApplicationRecord.connection.reset_pk_sequence!('users')
     ApplicationRecord.connection.reset_pk_sequence!('communities')
+    ApplicationRecord.connection.reset_pk_sequence!('channels')
+    ApplicationRecord.connection.reset_pk_sequence!('messages')
+
     User.create!(
         username: "Patrick",
         email: "Fitzgerald@gmail.com",
@@ -61,6 +65,12 @@ ApplicationRecord.transaction do
     Channel.create!(
         title: "Memes",
         communities_id: 1
+    )
+
+    Message.create!(
+        body: "Hello World",
+        author_id: 1,
+        channel_id: 1
     )
 
 end

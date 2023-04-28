@@ -11,4 +11,6 @@ class Community < ApplicationRecord
     foreign_key: :communities_id,
     dependent: :destroy
 
+
+
 end

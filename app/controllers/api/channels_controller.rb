@@ -9,7 +9,8 @@ class Api::ChannelsController < ApplicationController
       end
     
       def show
-        @channel = Community.find_by(id: params["id"])
+        @channel = Channel.find_by(id: params["id"])
+        @messages = Message.where(channel_id: @channel.id)
         render :show
       end
     
@@ -17,6 +18,7 @@ class Api::ChannelsController < ApplicationController
         @channel = Channel.new(channel_params);
         @community = Community.find_by(id: params["community_id"]);
         @channel.communities_id = @community.id;
+        @messages = Message.where(channel_id: @channel.id)
         if(@channel.save)
             render :show
         else
@@ -26,6 +28,7 @@ class Api::ChannelsController < ApplicationController
     
       def update
         @channel = Channel.find_by(id: params["id"])
+        @messages = Message.where(channel_id: @channel.id)
         if(@channel && @channel.update(channel_params))
             render :show
         else

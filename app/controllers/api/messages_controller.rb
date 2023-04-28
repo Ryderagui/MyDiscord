@@ -8,13 +8,23 @@ class Api::MessagesController < ApplicationController
     end
 
     def create
-        @message = Message.new(message_params);
+        @messages = Message.new(message_params);
         @channel = Channel.find_by(id: params["channel_id"]);
-        @message.channel_id = @channel.id;
-        if(@message.save)
-            render :index
+        if(@messages.save)
+            ChatChannel.broadcast_to(@channel,{
+                type: "ADD_MESSAGE",
+                payload:{
+                    id: @messages.id,
+                    body: @messages.body,
+                    authorId: @messages.author_id,
+                    channelId: @messages.channel_id,
+                    createdAt: @messages.created_at
+                },
+                channel: @channel.title
+            })
+            # render json: {}
         else
-            render json: { errors: @message.errors.full_messages}, status: :unprocessable_entity 
+            render json: { errors: @messages.errors.full_messages}, status: :unprocessable_entity 
         end
     end
 
