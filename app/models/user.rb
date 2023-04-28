@@ -26,7 +26,8 @@ class User < ApplicationRecord
 
     has_many :created_communities,
         foreign_key: :user_id,
-        class_name: :Community
+        class_name: :Community,
+        dependent: :destroy
     
 
 

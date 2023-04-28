@@ -25,9 +25,9 @@ li {
     color: white;
 }
 
-button2 {
-    width: 100px;
-    height: 50px;
+.button2 {
+    width: 70px;
+    height: 30px;
     border-radius: 4px;
     justify-self: center;
     align-self: center;

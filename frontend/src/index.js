@@ -8,6 +8,7 @@ import configureStore from './store';
 import csrfFetch, { restoreCSRF } from './store/csrf';
 import * as sessionActions from './store/session'
 import * as communityActions from './store/community'
+import * as channelActions from './store/channel'
 
 
 const store = configureStore();
@@ -16,6 +17,7 @@ if (process.env.NODE_ENV !== 'production') {
   window.csrfFetch = csrfFetch;
   window.sessionActions = sessionActions;
   window.communityActions = communityActions;
+  window.channelActions = channelActions;
 }
 
 function Root () {

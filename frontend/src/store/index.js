@@ -2,11 +2,12 @@ import { legacy_createStore, combineReducers, applyMiddleware, compose } from 'r
 import thunk from 'redux-thunk';
 import sessionReducer from './session';
 import communityReducer from './community';
-
+import channelReducer from './channel';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
-    communities: communityReducer
+    communities: communityReducer,
+    channels: channelReducer
 });
 
 let enhancer = applyMiddleware(thunk);

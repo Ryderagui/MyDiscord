@@ -43,12 +43,12 @@ function CommunityForm ({setOpenModal}) {const dispatch = useDispatch();
         </label>
         <label className='input'>Public
         <input type="radio" name="privacy" value={true} checked={privacy}
-        onChange={(e)=>{setPrivacy(e.target.value)}}
+        onChange={(e)=>{setPrivacy(true)}}
         />
         </label>
         <label className='input'>Private
-        <input type="radio" name="privacy" value={false} checked={privacy === "false"}
-        onChange={(e)=>{setPrivacy(e.target.value)}}
+        <input type="radio" name="privacy" value={false} checked={privacy === false}
+        onChange={(e)=>{setPrivacy(false)}}
         />
         </label>
         <button className="button" type="submit">Create Community</button>
