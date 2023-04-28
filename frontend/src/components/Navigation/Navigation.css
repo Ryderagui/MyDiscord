@@ -1,7 +1,7 @@
 .navbar {
     display: flex;
+    justify-content: space-between;
     background-color: purple;
-    justify-content: right;
     margin: 0;
     height: 50px;
    
@@ -35,4 +35,20 @@ li {
     margin-bottom: 5px;
     background-color: rgb(91, 179, 247);
     color: white;
+}
+
+.navbarLeft {
+    color:white;
+    align-self: left;
+    justify-self: left;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 30px;
+}
+
+.navbarRight {
+    display: flex;
+    width: 125px;
+    justify-content: center;
+    align-content: center;
 }

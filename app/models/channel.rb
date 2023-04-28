@@ -4,8 +4,10 @@ class Channel < ApplicationRecord
 
     belongs_to :community,
     foreign_key: :communities_id,
-    class_name: :Community,
-    dependent: :destroy
+    class_name: :Community
 
+    has_many :messages,
+    foreign_key: :channel_id,
+    class_name: :Channel 
     
 end

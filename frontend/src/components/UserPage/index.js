@@ -9,10 +9,12 @@ import { Redirect } from "react-router-dom/cjs/react-router-dom";
 import CommunityList from "../CommunityList";
 import CommunityPage from "../CommunityPage";
 import UserProfileButton from "../UserProfileButton";
+import ChannelPage from "../ChannelPage";
+
 
 function UserPage () {
     const dispatch = useDispatch;
-    const { userid } = useParams();
+    const { userid, communityid, channelid } = useParams();
     const currentUser = useSelector(sessionActions.getUser);
     
 
@@ -32,8 +34,8 @@ function UserPage () {
             <CommunityPage />
             </div>
             <div className="channelArea">
-            <Navigation/>
-            <h2>Chat Box</h2>
+            <Navigation channelid={channelid}/>
+            <ChannelPage/>
             </div>
 
         </div>

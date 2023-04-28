@@ -6,8 +6,7 @@ import "./CommunityPage.css"
 import { BsFillGearFill } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import CommunityEditForm from "../CommunityEditForm";
-import channelReducer from "../../store/channel";
-import { AiOutlinePlus, AiOutlineClose } from "react-icons/ai";
+import { AiOutlinePlus } from "react-icons/ai";
 import ChannelForm from "../ChannelForm";
 import ChannelItem from "../ChannelItem";
 
@@ -24,9 +23,8 @@ function CommunityPage () {
         dispatch(channelActions.fetchChannels(communityid))
 
     },[dispatch,communityid])
-    const handleDeleteChannel = (e)=> {
 
-    }
+
     return (
         <div className="communityContainer">
         <div className="communityTitle">
@@ -34,14 +32,16 @@ function CommunityPage () {
         <BsFillGearFill size={30} onClick={()=>{community && setOpenEdit(true)}}/>
         {openEdit && <CommunityEditForm setOpenEdit={setOpenEdit}/>}
         </div>
+        <div>
         <h3 className="textHeader">Text Channels</h3>
         <AiOutlinePlus size={30} onClick={()=>{channel && setOpenNewChannel(true)}}/>
         {openNewChannel && <ChannelForm setOpenNewChannel={setOpenNewChannel}/>}
-        <ul>
+        </div>
+        <div>
         {channel.map((chan)=>{
             return <ChannelItem channel={chan} key={chan.id}/>
         })}
-        </ul>
+        </div>
         </div>
     )
 };
