@@ -78,7 +78,7 @@ export const createMessages = (communitiesId,message)=>async dispatch =>{
     })
     if(res.ok){
         let data = await res.json();
-        dispatch(addMessage(data));
+        // dispatch(addMessage(data));
     }
 }
 

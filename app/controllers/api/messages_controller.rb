@@ -9,6 +9,7 @@ class Api::MessagesController < ApplicationController
 
     def create
         @messages = Message.new(message_params);
+        @user = User.find_by(id: @messages.author_id)
         @channel = Channel.find_by(id: params["channel_id"]);
         if(@messages.save)
             ChatChannel.broadcast_to(@channel,{
@@ -18,11 +19,12 @@ class Api::MessagesController < ApplicationController
                     body: @messages.body,
                     authorId: @messages.author_id,
                     channelId: @messages.channel_id,
-                    createdAt: @messages.created_at
+                    createdAt: @messages.created_at,
+                    username: @user.username
                 },
-                channel: @channel.title
+                
             })
-            # render json: {}
+            render json: {}
         else
             render json: { errors: @messages.errors.full_messages}, status: :unprocessable_entity 
         end

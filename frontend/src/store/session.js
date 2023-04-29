@@ -3,10 +3,10 @@ import csrfFetch from "./csrf";
 const SET_CURRENT_USER = 'session/setCurrrentUser';
 const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
 
-const setCurrentUser = (userId) =>{
+const setCurrentUser = (user) =>{
     return {
         type: SET_CURRENT_USER,
-        userId: userId
+        user: user
     }
 };
 
@@ -19,11 +19,13 @@ const removeCurrentUser = () => {
 const initialState = { currentUserId: sessionStorage.getItem("currentUserId")}
 
 const sessionReducer = (state = initialState,action) => {
+    let newState = {...state};
     switch(action.type){
         case REMOVE_CURRENT_USER:
             return {...state, currentUserId: action.userId}
         case SET_CURRENT_USER:
-            return {...state, currentUserId: action.userId}
+            let user = action.user
+            return {...state, currentUserId: action.user.id}
             default:
                 return state;
         
