@@ -29,7 +29,8 @@ const channelReducer = (state = {},action) =>{
     const newState = {...state};
     switch(action.type){
         case ADD_CHANNEL:
-            return {...state, [action.channel.id]: action.channel}
+            console.log(action.channel, "channel")
+            return {...state, [action.channel.channel.id]: action.channel.channel}
         case ADD_CHANNELS:
             return {...action.channels}
         case REMOVE_CHANNEL:

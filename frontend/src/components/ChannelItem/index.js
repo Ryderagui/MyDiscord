@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import {BiHash} from "react-icons/bi"
+
 import "./ChannelItem.css"
 
 function ChannelItem ({channel}) {
@@ -20,9 +21,9 @@ function ChannelItem ({channel}) {
         e.preventDefault();
         history.push(`/users/${currentUserId}/${communityid}/${channel.id}`)
     }
-    return ( <div>
+    return ( <div className="channelItem">
         <div className="channelItemTitle" onClick={()=>{history.push(`/users/${currentUserId}/${communityid}/${channel.id}`)}}>
-        <BiHash size={30}/>
+        <BiHash size={20}/>
         {` ${channel.title}`}
         </div>
         <AiOutlineClose onClick={handleDeleteChannel} size={30}/>

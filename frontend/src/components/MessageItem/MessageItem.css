@@ -1,4 +1,16 @@
 
 .message {
-    
+    padding: 3px;
+    margin-left: 5px;
+    height: 5vh;
+}
+
+.messageUser {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.messageTop {
+    display: flex;
+    justify-content: space-between;
 }

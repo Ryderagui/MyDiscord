@@ -42,7 +42,7 @@ function Navigation ({channelid}) {
             <div className="navbarRight">
             <div className="navLogo">
             <NavLink to="/" className="logo">
-            <div><FaDiscord size={25}/></div>
+            <div><FaDiscord size={25} color={"grey"}/></div>
             </NavLink>
             </div>
             {links}

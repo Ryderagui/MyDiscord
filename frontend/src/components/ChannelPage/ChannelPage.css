@@ -1,0 +1,18 @@
+
+.chatBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 75vh;
+
+}
+
+.chatForm {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.chatMessages {
+    padding: 3px;
+}

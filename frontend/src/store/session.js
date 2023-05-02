@@ -25,7 +25,8 @@ const sessionReducer = (state = initialState,action) => {
             return {...state, currentUserId: action.userId}
         case SET_CURRENT_USER:
             let user = action.user
-            return {...state, currentUserId: action.user.id}
+            console.log(user,"user")
+            return {...state, currentUserId: action.user}
             default:
                 return state;
         

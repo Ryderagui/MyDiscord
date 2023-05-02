@@ -32,12 +32,12 @@ function CommunityPage () {
         <BsFillGearFill size={30} onClick={()=>{community && setOpenEdit(true)}}/>
         {openEdit && <CommunityEditForm setOpenEdit={setOpenEdit}/>}
         </div>
-        <div>
+        <div className="communityTextHeader">
         <h3 className="textHeader">Text Channels</h3>
         <AiOutlinePlus size={30} onClick={()=>{channel && setOpenNewChannel(true)}}/>
         {openNewChannel && <ChannelForm setOpenNewChannel={setOpenNewChannel}/>}
         </div>
-        <div>
+        <div className="communityChannelList">
         {channel.map((chan)=>{
             return <ChannelItem channel={chan} key={chan.id}/>
         })}

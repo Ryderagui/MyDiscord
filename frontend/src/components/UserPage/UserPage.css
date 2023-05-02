@@ -5,15 +5,15 @@
 
 .channelArea {
     width: 80%;
+    background-color: rgba(248,248,248);
 }
 
 .communityShow {
     width: 20%;
-    background-color: lightgray;
+    background-color: rgb(230, 230, 230);
 }
 
 .list {
     width: auto;
-    background-color: rgba(175,175,175);
-    height: 100%;
+    background-color: rgb(210, 210, 210);
 }

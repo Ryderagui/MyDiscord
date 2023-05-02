@@ -51,23 +51,29 @@ function ChannelPage () {
     }
     return(
         <div>
-        <div className="chatBox">
-        <h2>{channel && channel.title}</h2>
-        {messages.map((message)=>{
-            return(
-                <MessageItem message={message} key={message.id}/>
-            )
-        })}
+            <div className="chatBox">
+                <div className="topChat">
+                </div>
+                <div className="bottomChat">
+                    <div className="chatMessages">
+                    {messages.map((message)=>{
+                        return(
+                            <MessageItem message={message} key={message.id}/>
+                        )
+                    })}
+                    </div>
+                    <div className="chatForm"> 
+                    <form onSubmit={handleSubmit}>
+                    <label>
+                    <input type="textarea" value={body} onChange={(e)=>{setBody(e.target.value)}}/>
+                    </label>
+                    <button type="submit">Send Message</button>
+                    </form>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-        <form onSubmit={handleSubmit}>
-        <label>Message
-        <input type="textarea" value={body} onChange={(e)=>{setBody(e.target.value)}}/>
-        </label>
-        <button type="submit">Create Message</button>
-        </form>
-        </div>
-        </div>
+        
         
        
     )
