@@ -1,8 +1,13 @@
 
 .message {
+    position: relative;
     padding: 3px;
     margin-left: 5px;
     height: 5vh;
+}
+
+.message:hover {
+    background-color:  rgb(230, 230, 230);
 }
 
 .messageUser {
@@ -13,4 +18,21 @@
 .messageTop {
     display: flex;
     justify-content: space-between;
+}
+
+.messageTooltip {
+    position: absolute;
+    background-color: white;
+    border-radius: 5px;
+    top: -10px;
+    left: 82%;
+    margin: none;
+    padding: 3px;
+    height: 25px;
+    width: 50px;
+    align-content: center;
+}
+
+svg:hover {
+    cursor: pointer;
 }

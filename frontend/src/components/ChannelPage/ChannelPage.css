@@ -1,10 +1,11 @@
 
 .chatBox {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     justify-content: space-between;
     height: 75vh;
-
+    overflow: auto;
+    align-content: end;
 }
 
 .chatForm {
