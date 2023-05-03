@@ -4,21 +4,21 @@ const ADD_CHANNEL = 'channel/addChannel';
 const ADD_CHANNELS = 'channel/addChannels'
 const REMOVE_CHANNEL = 'channel/removeChannel';
 
-const addChannel = (channel)=>{
+export const addChannel = (channel)=>{
     return {
         type: ADD_CHANNEL,
         channel: channel
     }
 }
 
-const addChannels = (channels)=>{
+export const addChannels = (channels)=>{
     return {
         type: ADD_CHANNELS,
         channels: channels
     }
 }
 
-const removechannel = (channelId)=>{
+export const removeChannel = (channelId)=>{
     return {
         type: REMOVE_CHANNEL,
         channelId: channelId
@@ -30,7 +30,7 @@ const channelReducer = (state = {},action) =>{
     switch(action.type){
         case ADD_CHANNEL:
             console.log(action.channel, "channel")
-            return {...state, [action.channel.channel.id]: action.channel.channel}
+            return {...state, [action.channel.id]: action.channel}
         case ADD_CHANNELS:
             return {...action.channels}
         case REMOVE_CHANNEL:
@@ -87,7 +87,7 @@ export const createChannels = (communitiesId,channel)=>async dispatch =>{
     })
     if(res.ok){
         let data = await res.json();
-        dispatch(addChannel(data));
+        // dispatch(addChannel(data));
     }
 }
 
@@ -101,7 +101,7 @@ export const updateChannels = (communitiesId,channel)=> async dispatch =>{
     });
     if(res.ok){
         let data = await res.json();
-        dispatch(addChannel(data));
+        // dispatch(addChannel(data));
     }
 }
 export const deleteChannels = (communitiesId,channelId)=>async dispatch =>{
@@ -109,6 +109,6 @@ export const deleteChannels = (communitiesId,channelId)=>async dispatch =>{
         method: "DELETE",
     })
     if(res.ok){
-        dispatch(removechannel(channelId));
+        // dispatch(removeChannel(channelId));
     }
 }

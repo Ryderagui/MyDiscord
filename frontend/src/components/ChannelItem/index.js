@@ -5,14 +5,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom/cjs/react-router-dom";
 import {BiHash} from "react-icons/bi"
-
+import { BsFillPencilFill } from "react-icons/bs";
 import "./ChannelItem.css"
+import { useState } from "react";
+import ChannelEditForm from "../ChannelEditForm";
 
 function ChannelItem ({channel}) {
     const dispatch = useDispatch();
     const currentUserId = useSelector(sessionActions.getUser);
     const {communityid} = useParams();
     const history = useHistory();
+    const [hover,setHover] = useState(false);
+    const [openEditChannel,setOpenEditChannel] = useState(false);
+
     const handleDeleteChannel = (e) => {
         e.preventDefault();
         return dispatch(channelActions.deleteChannels(communityid,channel.id));
@@ -21,12 +26,16 @@ function ChannelItem ({channel}) {
         e.preventDefault();
         history.push(`/users/${currentUserId}/${communityid}/${channel.id}`)
     }
-    return ( <div className="channelItem">
+    return ( <div className="channelItem" onMouseEnter={()=>{setHover(true)}} onMouseLeave={()=>{setHover(false)}}>
+         {openEditChannel && <ChannelEditForm setOpenEditChannel={setOpenEditChannel} channel={channel}/>}
         <div className="channelItemTitle" onClick={()=>{history.push(`/users/${currentUserId}/${communityid}/${channel.id}`)}}>
         <BiHash size={20}/>
         {` ${channel.title}`}
         </div>
-        <AiOutlineClose onClick={handleDeleteChannel} size={30}/>
+        <div className="channelItemIcons" style={{display: hover ? "flex" : "none"}}>
+        <BsFillPencilFill size={15} onClick={()=>{setOpenEditChannel(true)}} />
+        <AiOutlineClose size={20} onClick={handleDeleteChannel}/>
+        </div>
         </div>  
     )
 };

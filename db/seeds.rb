@@ -106,7 +106,7 @@ ApplicationRecord.transaction do
 
     Membership.create!(
         member_id: 2,
-        community_id: 4
+        community_id: 2
     )
 
 end

@@ -21,17 +21,37 @@ class Api::ChannelsController < ApplicationController
         @channel.communities_id = @community.id;
         @messages = Message.where(channel_id: @channel.id)
         if(@channel.save)
-            render :show
+          CommunityChannel.broadcast_to(@community,{
+            type: "ADD_CHANNEL",
+            channel: {
+                id: @channel.id,
+                title: @channel.title,
+                communities_id: @channel.communities_id,
+                createdAt: @channel.created_at,
+            },
+          })
+
+            render json: {}
         else
-            render json: { errors: @community.errors.full_messages}, status: :unprocessable_entity 
+            render json: { errors: @channel.errors.full_messages}, status: :unprocessable_entity 
         end
       end
     
       def update
         @channel = Channel.find_by(id: params["id"])
         @messages = Message.where(channel_id: @channel.id)
+        @community = Community.find_by(id: params["community_id"]);
         if(@channel && @channel.update(channel_params))
-            render :show
+          CommunityChannel.broadcast_to(@community,{
+            type: "ADD_CHANNEL",
+            channel: {
+                id: @channel.id,
+                title: @channel.title,
+                communities_id: @channel.communities_id,
+                createdAt: @channel.created_at,
+            },
+          })
+          render json: {}
         else
             render json: { errors: @channel.errors.full_messages}, status: :unprocessable_entity 
         end
@@ -40,8 +60,19 @@ class Api::ChannelsController < ApplicationController
     
       def destroy
         @channel = Channel.find_by(id: params["id"])
+        @community = Community.find_by(id: params["community_id"]);
         if(Channel.destroy(@channel.id))
-          render json: {channelid: @channel.id}
+          CommunityChannel.broadcast_to(@community,{
+            type: "REMOVE_CHANNEL",
+            channel: {
+                id: @channel.id,
+                title: @channel.title,
+                communities_id: @channel.communities_id,
+                createdAt: @channel.created_at,
+            },
+          })
+
+          render json: {}
         else
           render json: { errors: ['Issue with Delete']}, status: :unprocessable_entity
         end
