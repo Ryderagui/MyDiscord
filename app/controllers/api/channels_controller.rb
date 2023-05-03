@@ -1,4 +1,5 @@
 class Api::ChannelsController < ApplicationController
+  before_action :require_logged_in
 
     def index 
         self.current_user
@@ -20,7 +21,8 @@ class Api::ChannelsController < ApplicationController
         @community = Community.find_by(id: params["community_id"]);
         @channel.communities_id = @community.id;
         @messages = Message.where(channel_id: @channel.id)
-        if(@channel.save)
+        verify = @community.user_id & @current_user.id
+        if(verify && @channel.save)
           CommunityChannel.broadcast_to(@community,{
             type: "ADD_CHANNEL",
             channel: {
@@ -38,10 +40,12 @@ class Api::ChannelsController < ApplicationController
       end
     
       def update
+        self.current_user
         @channel = Channel.find_by(id: params["id"])
         @messages = Message.where(channel_id: @channel.id)
         @community = Community.find_by(id: params["community_id"]);
-        if(@channel && @channel.update(channel_params))
+        verify = @community.user_id & @current_user.id
+        if(@channel && verify && @channel.update(channel_params))
           CommunityChannel.broadcast_to(@community,{
             type: "ADD_CHANNEL",
             channel: {

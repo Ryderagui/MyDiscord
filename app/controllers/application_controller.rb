@@ -22,29 +22,35 @@ protect_from_forgery with: :exception
         headers['X-CSRF-Token'] = masked_authenticity_token(session)
     end
 
-    def current_user 
+    def current_user  
         @current_user ||= User.find_by(session_token: session[:session_token])
     end
 
     def require_logged_in 
-        if logged_in? == false
+        if !logged_in?
             render json: { message: 'Please Login'}, status: :unauthorized
         end
+        return true
     end
 
     def require_logged_out
         if logged_in?
             render json: { message: 'Already logged in'}, status: :unauthorized
         end
+        return true
     end
 
     def logged_in?
+        puts "Logged In?"
+        puts !!current_user
         !!current_user
     end
 
     def login!(user)
-       session[:session_token] = user.reset_session_token!
+        session[:session_token] = user.reset_session_token!
         @current_user = user
+        puts @current_user.id
+        puts "Logging In"
         return true 
     end
 

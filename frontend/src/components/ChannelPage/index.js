@@ -20,7 +20,9 @@ function ChannelPage () {
     let messageArea = document.getElementById("messageArea");
 
     useEffect(()=>{
-        dispatch(messageActions.fetchMessages(communityid,channelid))
+        if(communityid && channelid){
+            dispatch(messageActions.fetchMessages(communityid,channelid))
+        }
     },[dispatch,communityid,channelid])
 
     useEffect(()=>{

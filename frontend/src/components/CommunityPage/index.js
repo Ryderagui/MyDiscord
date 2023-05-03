@@ -1,7 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import * as communityActions from '../../store/community';
 import * as channelActions from '../../store/channel';
+import * as sessionActions from '../../store/session';
 import "./CommunityPage.css"
 import { BsFillGearFill } from "react-icons/bs";
 import { useState, useEffect } from "react";
@@ -13,19 +14,28 @@ import consumer from "../../util/consumer"
 
 
 function CommunityPage () {
+    const currentUserId = useSelector(sessionActions.getUser);
     const dispatch = useDispatch();
-    const {communityid} = useParams();
+    const history = useHistory();
+    const {communityid, channelid} = useParams();
     const community = useSelector(communityActions.getCommunity(communityid));
     const [openEdit,setOpenEdit] = useState(false);
     const channel = useSelector(channelActions.getChannels);
     const [openNewChannel,setOpenNewChannel] = useState(false);
-    
+
 
     useEffect(()=>{
-
+        if(communityid){
         dispatch(channelActions.fetchChannels(communityid))
-
+        }
     },[dispatch,communityid])
+
+    useEffect(()=>{
+        if(community && channelid === undefined){
+            let defaultid = community.default.id
+            history.push(`/users/${currentUserId}/${community.id}/${defaultid}`)
+        }
+    },[channel,communityid,channelid])
 
     useEffect(()=>{
         const sub = consumer.subscriptions.create({
@@ -46,17 +56,22 @@ function CommunityPage () {
         console.log(sub,"sub")
         return ()=> sub?.unsubscribe();
     },[dispatch,communityid])
+    let verify;
+    if(community){
+       verify = parseInt(currentUserId) === community.userId
+    }
+    
 
     return (
         <div className="communityContainer">
         <div className="communityTitle">
         <h2 className="titleText">{community && community.title}</h2>
-        <BsFillGearFill size={30} onClick={()=>{community && setOpenEdit(true)}}/>
+        <BsFillGearFill size={30} onClick={()=>{community && setOpenEdit(true)}} style={{display: verify ? "block" : "none"}} />
         {openEdit && <CommunityEditForm setOpenEdit={setOpenEdit}/>}
         </div>
         <div className="communityTextHeader">
         <h3 className="textHeader">Text Channels</h3>
-        <AiOutlinePlus size={30} onClick={()=>{channel && setOpenNewChannel(true)}}/>
+        <AiOutlinePlus size={30} onClick={()=>{channel && setOpenNewChannel(true)}} style={{display: verify ? "block" : "none"}}/>
         {openNewChannel && <ChannelForm setOpenNewChannel={setOpenNewChannel}/>}
         </div>
         <div className="communityChannelList">

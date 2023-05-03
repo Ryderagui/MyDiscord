@@ -1,6 +1,6 @@
 .container {
     display: flex;
-    background: da
+    height: inherit;
 }
 
 .channelArea {

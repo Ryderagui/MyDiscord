@@ -1,4 +1,5 @@
 class Api::MessagesController < ApplicationController
+    before_action :require_logged_in
 
     def index 
         @user = current_user
@@ -34,6 +35,7 @@ class Api::MessagesController < ApplicationController
         @messages = Message.find_by(id: params[:id]);
         @user = User.find_by(id: @messages.author_id)
         @channel = Channel.find_by(id: params[:channel_id]);
+        verify = @messages.author_id & @current_user.id
         if(@messages.update(message_params))
             ChatChannel.broadcast_to(@channel,{
                 type: "ADD_MESSAGE",

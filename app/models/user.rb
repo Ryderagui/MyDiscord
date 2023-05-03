@@ -21,7 +21,7 @@ class User < ApplicationRecord
     def reset_session_token!
         token = generate_unique_session_token
         self.update!(session_token: token)
-        token
+        self.session_token
     end
 
     has_many :created_communities,
@@ -41,9 +41,9 @@ class User < ApplicationRecord
     private
 
     def generate_unique_session_token
-        token = SecureRandom.urlsafe_base64
+        token = SecureRandom.base64
         while(User.exists?(session_token: token)) do
-            token = SecureRandom.urlsafe_base64
+            token = SecureRandom.base64
         end
         token
     end

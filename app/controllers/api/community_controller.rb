@@ -1,5 +1,5 @@
 class Api::CommunityController < ApplicationController
-  # before_action :require_logged_in
+  before_action :require_logged_in
 
   def index 
     self.current_user
@@ -19,6 +19,8 @@ class Api::CommunityController < ApplicationController
     @community = Community.new(community_params)
     @community.user_id = @current_user.id
     if(@community.save)
+        Membership.create!(member_id: @current_user.id, community_id: @community.id)
+        Channel.create!(title: "General", communities_id: @community.id)
         render :show
     else
         render json: { errors: @community.errors.full_messages}, status: :unprocessable_entity 
@@ -27,8 +29,8 @@ class Api::CommunityController < ApplicationController
 
   def update
     @community = Community.find_by(id: params["id"])
-    puts @community
-    if(@community && @community.update(community_params))
+    verify = @community.user_id & @current_user.id
+    if(verify && @community && @community.update(community_params))
         render :show
     else
         render json: { errors: @community.errors.full_messages}, status: :unprocessable_entity 
