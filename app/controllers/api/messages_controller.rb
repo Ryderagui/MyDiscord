@@ -14,7 +14,7 @@ class Api::MessagesController < ApplicationController
         if(@messages.save)
             ChatChannel.broadcast_to(@channel,{
                 type: "ADD_MESSAGE",
-                payload:{
+                message: {
                     id: @messages.id,
                     body: @messages.body,
                     authorId: @messages.author_id,
@@ -30,10 +30,48 @@ class Api::MessagesController < ApplicationController
         end
     end
 
+    def update
+        @messages = Message.find_by(id: params[:id]);
+        @user = User.find_by(id: @messages.author_id)
+        @channel = Channel.find_by(id: params[:channel_id]);
+        if(@messages.update(message_params))
+            ChatChannel.broadcast_to(@channel,{
+                type: "ADD_MESSAGE",
+                message: {
+                    id: @messages.id,
+                    body: @messages.body,
+                    authorId: @messages.author_id,
+                    channelId: @messages.channel_id,
+                    createdAt: @messages.created_at,
+                    updatedAt: @messages.updated_at,
+                    username: @user.username
+                },
+                
+            })
+            render json: {}
+        else
+            render json: { errors: @messages.errors.full_messages}, status: :unprocessable_entity 
+        end
+    end
+
+
     def destroy
         @message = Message.find_by(id: params["id"])
+        @channel = Channel.find_by(id: params[:channel_id]);
         if(Message.destroy(@message.id))
-          render json: {messageid: @message.id}
+            ChatChannel.broadcast_to(@channel,{
+                type: "REMOVE_MESSAGE",
+                message:{
+                    id: @message.id,
+                    body: @message.body,
+                    authorId: @message.author_id,
+                    channelId: @message.channel_id,
+                    createdAt: @message.created_at,
+                    updatedAt: @message.updated_at,
+                },
+                
+            })
+          render json: {}
         else
           render json: { errors: ['Issue with Delete']}, status: :unprocessable_entity
         end

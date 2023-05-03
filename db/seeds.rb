@@ -15,6 +15,7 @@ ApplicationRecord.transaction do
     ApplicationRecord.connection.reset_pk_sequence!('communities')
     ApplicationRecord.connection.reset_pk_sequence!('channels')
     ApplicationRecord.connection.reset_pk_sequence!('messages')
+    ApplicationRecord.connection.reset_pk_sequence!('memberships')
 
     User.create!(
         username: "Patrick",
@@ -58,6 +59,21 @@ ApplicationRecord.transaction do
     )
 
     Channel.create!(
+        title: "General",
+        communities_id: 2
+    )
+
+    Channel.create!(
+        title: "General",
+        communities_id: 3
+    )
+
+    Channel.create!(
+        title: "General",
+        communities_id: 4
+    )
+
+    Channel.create!(
         title: "Help",
         communities_id: 1
     )
@@ -71,6 +87,26 @@ ApplicationRecord.transaction do
         body: "Hello World",
         author_id: 1,
         channel_id: 1
+    )
+
+    Membership.create!(
+        member_id: 1,
+        community_id: 1
+    )
+
+    Membership.create!(
+        member_id: 1,
+        community_id: 2
+    )
+
+    Membership.create!(
+        member_id: 1,
+        community_id: 3
+    )
+
+    Membership.create!(
+        member_id: 2,
+        community_id: 4
     )
 
 end

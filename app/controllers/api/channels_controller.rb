@@ -1,8 +1,9 @@
 class Api::ChannelsController < ApplicationController
 
     def index 
-        @user = current_user
-        @community = Community.find_by(id: params["community_id"])
+        self.current_user
+        @user = @current_user
+        @community = Community.find_by(id: params[:community_id])
         @channels = Channel.where(communities_id: @community.id)
         # Add Active record to fetch all communities from Membership
         render :index

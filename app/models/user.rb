@@ -29,6 +29,15 @@ class User < ApplicationRecord
         class_name: :Community,
         dependent: :destroy
 
+    has_many :memberships,
+        foreign_key: :member_id,
+        class_name: :Membership,
+        dependent: :destroy
+
+    has_many :communities,
+        through: :memberships,
+        source: :community 
+
     private
 
     def generate_unique_session_token

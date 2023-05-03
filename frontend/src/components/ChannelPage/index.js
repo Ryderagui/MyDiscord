@@ -17,10 +17,17 @@ function ChannelPage () {
     const channel = useSelector(channelActions.getChannel(channelid));
     const [body,setBody] = useState('');
     const messages = useSelector(messageActions.getMessages);
+    let messageArea = document.getElementById("messageArea");
 
     useEffect(()=>{
         dispatch(messageActions.fetchMessages(communityid,channelid))
     },[dispatch,communityid,channelid])
+
+    useEffect(()=>{
+        if(messageArea){
+            messageArea.scroll(0,messageArea.scrollHeight);
+        }
+    },[messageArea,messages])
 
     useEffect(()=>{
         const sub = consumer.subscriptions.create({
@@ -29,9 +36,12 @@ function ChannelPage () {
         },{
             received:(payload)=>{
                 console.log(payload,"payload")
+                console.log(payload.message,"payload.message")
                 switch(payload.type){
                     case 'ADD_MESSAGE':
-                        dispatch(messageActions.addMessage(payload.payload))
+                        return dispatch(messageActions.addMessage(payload.message))
+                    case 'REMOVE_MESSAGE':
+                        return dispatch(messageActions.removeMessage(payload.message.id))
                 }
             }
         })
@@ -50,11 +60,9 @@ function ChannelPage () {
         setBody('');
     }
     return(
-        <div>
+        <div className="channelPage">
             <div className="chatBox">
-                <div className="topChat">
-                </div>
-                <div className="bottomChat">
+                <div className="messageArea" id="messageArea">
                     <div className="chatMessages">
                     {messages.map((message)=>{
                         return(
@@ -62,15 +70,14 @@ function ChannelPage () {
                         )
                     })}
                     </div>
-                    <div className="chatForm"> 
+                </div>
+                <div className="chatForm"> 
                     <form onSubmit={handleSubmit}>
                     <label>
                     <input type="textarea" value={body} onChange={(e)=>{setBody(e.target.value)}}/>
                     </label>
-                    <button type="submit">Send Message</button>
                     </form>
                     </div>
-                </div>
             </div>
         </div>
         

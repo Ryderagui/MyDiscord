@@ -8,7 +8,7 @@ import { Redirect, useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 function CommunityItem ({community}) {
     const currentUserId = useSelector(sessionActions.getUser)
     const history = useHistory();
-    const channelDefault = community.default.id
+    const channelDefault = null || community.default.id
     return (
         <div className='communityItem'>
         <button type="button" className="communityLink" onClick={()=>{history.push(`/users/${currentUserId}/${community.id}/${channelDefault}`)}}>

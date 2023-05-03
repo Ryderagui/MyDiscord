@@ -1,19 +1,47 @@
+.channelPage {
+    display: flex;
+    flex-direction: column-reverse;
+    align-content: end;
+    justify-content: end;
+    margin-top: 1vh;
+    padding: 5px;
+}
+
 
 .chatBox {
     display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-between;
+    flex-direction: column;
     height: 75vh;
-    overflow: auto;
-    align-content: end;
+    justify-content: end;
+    padding-top: 1vh;
+    min-height: 50vh;
 }
 
 .chatForm {
     display: flex;
     justify-content: space-between;
-    width: 80%;
+    width: inherit;
+    padding: 8px;
+    background-color: rgb(230, 230, 230);
+    border-radius: 6px;
+}
+
+.chatForm form {
+    display: inline-block;
+    width: 100%;
+    padding: 3px;
+    justify-content: center;
+}
+
+.chatForm input {
+    width: 95%;
+    padding: 5px;
 }
 
 .chatMessages {
     padding: 3px;
+}
+
+.messageArea {
+    overflow: auto;
 }

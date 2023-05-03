@@ -2,8 +2,9 @@ class Api::CommunityController < ApplicationController
   # before_action :require_logged_in
 
   def index 
-    @user = current_user
-    @community = Community.all
+    self.current_user
+    @user = @current_user
+    @community = @user.communities
     # Add Active record to fetch all communities from Membership
     render :index
   end

@@ -1,12 +1,25 @@
 
-.message {
+.messageDefault {
     position: relative;
     padding: 3px;
     margin-left: 5px;
     height: 5vh;
 }
 
-.message:hover {
+.messageEdit {
+    position: relative;
+    padding: 3px;
+    margin-left: 5px;
+    height: auto;
+}
+
+.messageEdit form input {
+    padding: 2px;
+    margin: 2px;
+    width: 80%;
+}
+
+.messageBox:hover {
     background-color:  rgb(230, 230, 230);
 }
 
@@ -25,7 +38,7 @@
     background-color: white;
     border-radius: 5px;
     top: -10px;
-    left: 82%;
+    left: 70%;
     margin: none;
     padding: 3px;
     height: 25px;

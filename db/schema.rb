@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_28_164719) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_02_184542) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,6 +29,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_28_164719) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_communities_on_user_id"
+  end
+
+  create_table "memberships", force: :cascade do |t|
+    t.bigint "member_id", null: false
+    t.bigint "community_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["community_id"], name: "index_memberships_on_community_id"
+    t.index ["member_id"], name: "index_memberships_on_member_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -55,6 +64,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_28_164719) do
 
   add_foreign_key "channels", "communities", column: "communities_id"
   add_foreign_key "communities", "users"
+  add_foreign_key "memberships", "communities"
+  add_foreign_key "memberships", "users", column: "member_id"
   add_foreign_key "messages", "channels"
   add_foreign_key "messages", "users", column: "author_id"
 end

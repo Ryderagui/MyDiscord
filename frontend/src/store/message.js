@@ -82,25 +82,25 @@ export const createMessages = (communitiesId,message)=>async dispatch =>{
     }
 }
 
-// export const updatemessages = (communitiesId,message)=> async dispatch =>{
-//     let res = await csrfFetch(`/api/community/${communitiesId}/messages/${message.id}`,{
-//         method: "PATCH",
-//         body: JSON.stringify(message),
-//         headers: {
-//             'Content-Type':'application/json'
-//         }
-//     });
-//     if(res.ok){
-//         let data = await res.json();
-//         dispatch(addmessage(data));
-//     }
-// }
+export const updateMessages = (communitiesId,message)=> async dispatch =>{
+    let res = await csrfFetch(`/api/community/${communitiesId}/channels/${message.channel_id}/messages/${message.id}`,{
+        method: "PATCH",
+        body: JSON.stringify(message),
+        headers: {
+            'Content-Type':'application/json'
+        }
+    });
+    if(res.ok){
+        let data = await res.json();
+        // dispatch(addmessage(data));
+    }
+}
 
-export const deletemessages = (communitiesId,channelId,messageId)=>async dispatch =>{
+export const deleteMessages = (communitiesId,channelId,messageId)=>async dispatch =>{
     let res = await csrfFetch(`/api/community/${communitiesId}/channels/${channelId}/messages/${messageId}`,{
         method: "DELETE",
     })
     if(res.ok){
-        dispatch(removeMessage(messageId));
+        // dispatch(removeMessage(messageId));
     }
 }

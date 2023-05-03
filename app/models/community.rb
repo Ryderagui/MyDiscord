@@ -11,6 +11,15 @@ class Community < ApplicationRecord
     foreign_key: :communities_id,
     dependent: :destroy
 
+    has_many :members,
+    foreign_key: :community_id,
+    class_name: :Membership,
+    dependent: :destroy
+
+    has_many :participants,
+    through: :members,
+    source: :member
+
 
 
 end
