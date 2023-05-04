@@ -3,6 +3,7 @@ import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min
 import * as communityActions from '../../store/community';
 import * as channelActions from '../../store/channel';
 import * as sessionActions from '../../store/session';
+import * as membershipActions from '../../store/membership';
 import "./CommunityPage.css"
 import { BsFillGearFill } from "react-icons/bs";
 import { useState, useEffect } from "react";
@@ -22,7 +23,7 @@ function CommunityPage () {
     const [openEdit,setOpenEdit] = useState(false);
     const channel = useSelector(channelActions.getChannels);
     const [openNewChannel,setOpenNewChannel] = useState(false);
-
+    const [username,setUsername] = useState('');
 
     useEffect(()=>{
         if(communityid){
@@ -61,24 +62,44 @@ function CommunityPage () {
        verify = parseInt(currentUserId) === community.userId
     }
     
+    const handleInvite = (e)=>{
+        e.preventDefault();
+
+        let membership = {
+            username: username,
+            communityId: communityid
+        }
+        setUsername('')
+        dispatch(membershipActions.createMembership(membership))
+    }
 
     return (
         <div className="communityContainer">
-        <div className="communityTitle">
-        <h2 className="titleText">{community && community.title}</h2>
-        <BsFillGearFill size={30} onClick={()=>{community && setOpenEdit(true)}} style={{display: verify ? "block" : "none"}} />
-        {openEdit && <CommunityEditForm setOpenEdit={setOpenEdit}/>}
-        </div>
-        <div className="communityTextHeader">
-        <h3 className="textHeader">Text Channels</h3>
-        <AiOutlinePlus size={30} onClick={()=>{channel && setOpenNewChannel(true)}} style={{display: verify ? "block" : "none"}}/>
-        {openNewChannel && <ChannelForm setOpenNewChannel={setOpenNewChannel}/>}
-        </div>
-        <div className="communityChannelList">
-        {channel.map((chan)=>{
-            return <ChannelItem channel={chan} key={chan.id} setOpenNewChannel={setOpenNewChannel}/>
-        })}
-        </div>
+            <div className="communityTitle">
+                <h2 className="titleText">{community && community.title}</h2>
+                <BsFillGearFill size={30} onClick={()=>{community && setOpenEdit(true)}} style={{display: verify ? "block" : "none"}} />
+                {openEdit && <CommunityEditForm setOpenEdit={setOpenEdit}/>}
+            </div>
+            <div className="communityTextHeader">
+                <h3 className="textHeader">Text Channels</h3>
+                <AiOutlinePlus size={30} onClick={()=>{channel && setOpenNewChannel(true)}} style={{display: verify ? "block" : "none"}}/>
+                {openNewChannel && <ChannelForm setOpenNewChannel={setOpenNewChannel}/>}
+            </div>
+            <div className="communityChannelList">
+                {channel.map((chan)=>{
+                    return <ChannelItem channel={chan} key={chan.id} setOpenNewChannel={setOpenNewChannel}/>
+                })}
+            </div>
+            <div className="communityInviteArea" style={{display: verify ? "block" : "none"}}>
+            <div className="communityInviteHeader" >
+                <h3 className="textHeader">Invite by Username</h3>
+            </div>
+            <div>
+            <form onSubmit={handleInvite}>
+            <input className="inviteUsernameInput" type="text" value={username} onChange={(e)=>{setUsername(e.target.value)}}/>    
+            </form>    
+            </div>
+            </div>
         </div>
     )
 };

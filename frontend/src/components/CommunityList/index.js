@@ -24,11 +24,11 @@ function CommunityList () {
     },[dispatch])
 
     useEffect(()=>{
-        if(communities && communityid === undefined && channelid === undefined){
+        if((communities.length > 0) && communityid === undefined && channelid === undefined){
             console.log(communities,"communities")
             history.push(`/users/${currentUserId}/${communities[0].id}`)
         }
-    },[communities])
+    },[communities,channelid,history,currentUserId,communityid])
 
     return (
         <ul className="communityList">

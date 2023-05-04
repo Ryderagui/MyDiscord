@@ -1,7 +1,10 @@
 import {createConsumer} from '@rails/actioncable'
 
 
-const url = "ws://localhost:5000/cable"
+let url = "ws://localhost:5000/cable"
+if (process.env.NODE_ENV !== 'production'){
+    url = process.env.REDIS_URL;
+}
 const consumer = createConsumer(url)
 
 export default consumer;

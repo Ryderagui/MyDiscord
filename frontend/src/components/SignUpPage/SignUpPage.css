@@ -3,25 +3,14 @@
     align-content: center;
     justify-content: center;
     flex-direction: column;
-    width: 17vh;
-    height: 25vh;
-    margin-left: 40%;
+    width: 33%;
+    height: 60%;
+    margin-left: 33%;
     margin-top: 10vh;
-    background-color: grey;
+    background-color: rgb(85, 85, 85);
     border-radius: 5px;
-    border: 1 px solid silver;
-}
+    padding: 15px;
 
-button {
-    width: 100px;
-    height: 50px;
-    border-radius: 4px;
-    justify-self: center;
-    align-self: center;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
-    background-color: rgb(91, 179, 247);
-    color: white;
 }
 
 .errors {

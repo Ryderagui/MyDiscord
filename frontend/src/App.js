@@ -4,6 +4,7 @@ import LoginFormPage from './components/LoginFormPage';
 import SignUpPage from './components/SignUpPage';
 import UserPage from './components/UserPage';
 import FrontPage from './components/FrontPage';
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/users/:userid/:communityid/:channelid" component={UserPage} />
         <Route path="/users/:userid/:communityid" component={UserPage} />
         <Route path="/users/:userid" component={UserPage} />
+        <Redirect to="/"/>
       </Switch>
     </>
   );

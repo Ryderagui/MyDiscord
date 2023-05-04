@@ -7,14 +7,15 @@
 
 .communityLink {
     justify-self: center;
-    padding-left: 9px;
-    padding-top: 9px;
+    justify-content: center;
+    padding-left: 6px;
+    padding-top: 6px;
     color: white;
     font-size: 30px;
     border-radius: 50%;
     background: rgb(110, 110, 110);
-    width: 65px;
-    height: 65px;
+    width: 7vh;
+    height: 7vh;
     border: none;
 
 }

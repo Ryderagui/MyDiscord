@@ -1,0 +1,61 @@
+.navbarFront {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    height: 10vh;
+}
+
+li {
+    padding: 3px;
+    margin: 3px;
+    list-style: none;
+}
+
+.link {
+    color: white;
+    font-weight: bold;
+    
+}
+
+.button2 {
+    width: 70px;
+    height: 30px;
+    border-radius: 4px;
+    justify-self: center;
+    align-self: center;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(91, 179, 247);
+    color: white;
+}
+
+.navbarFrontLeft {
+    color:rgba(30,30,30);
+    display: flex;
+    align-self: left;
+    justify-self: left;
+    font-weight: bold;
+    padding: 5px;
+    font-size: 30px;
+    width: 30%;
+    font-weight: none;
+    font-style: none;
+}
+
+.navbarFrontRight {
+    display: flex;
+    width: 20%;
+    padding-top:1vh;
+    justify-content: center;
+    align-content: center;
+}
+
+.navFrontTitle {
+    margin: 0px;
+    width: 50%;
+}
+
+.navFrontLogo{
+    padding-top:1vh;
+    width: 10vh;
+}

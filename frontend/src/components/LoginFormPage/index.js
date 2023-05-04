@@ -30,7 +30,7 @@ function LoginFormPage () {
         });
     }
 
-    const handleDemo = (e) => {
+    const handleDemoOne = (e) => {
         e.preventDefault();
 
         let user = {
@@ -39,23 +39,33 @@ function LoginFormPage () {
         }
         return dispatch(sessionActions.login(user))
     }
+    const handleDemoTwo = (e) => {
+        e.preventDefault();
+
+        let user = {
+            credential: "Jane",
+            password: "tiktok"
+        }
+        return dispatch(sessionActions.login(user))
+    }
 
     return (
         <div className='backgroundLogin'>
         <form className="loginForm" onSubmit={handleSubmit}>
-        <h2>Log In!</h2>
-        <label>Username or Email
+        <h2>Log In</h2>
+        <label>USERNAME OR EMAIL
         <input  className='loginInput' type="text" value={credential} 
         onChange={(e)=>{setCredential(e.target.value)}}
         required/>
         </label>
-        <label>Password
+        <label>PASSWORD
         <input className='loginInput' type="password" value={password} 
         onChange={(e)=>{setPassword(e.target.value)}}
         required/>
         </label>
-        <button className="button" type="submit">Log In</button>
-        <button className="button" type="button" onClick={handleDemo}>Demo User</button>
+        <button className="loginButton" type="submit">Log In</button>
+        <button className="loginButton" type="button" onClick={handleDemoOne}>Demo User One</button>
+        <button className="loginButton" type="button" onClick={handleDemoTwo}>Demo User Two</button>
         <ul className='errors'>{errors.map((error)=>{return <li key={error}>{error}</li>})}</ul>
         
         </form> 

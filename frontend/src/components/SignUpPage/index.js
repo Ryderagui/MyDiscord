@@ -35,28 +35,28 @@ function SignUpPage () {
     };
     return (
         <form className='signInForm' onSubmit={handleSubmit}>
-        <h2>Sign Up!</h2>
-        <label>Email
-        <input type="text" value={email} 
+        <h2>Create an Account</h2>
+        <label>EMAIL
+        <input className='loginInput' type="text" value={email} 
         onChange={(e)=>{setEmail(e.target.value)}}
         required/>
         </label>
-        <label>Username
-        <input type="text" value={username} 
+        <label>USERNAME
+        <input className='loginInput' type="text" value={username} 
         onChange={(e)=>{setUsername(e.target.value)}}
         required/>
         </label>
-        <label>Password
-        <input type="password" value={password} 
+        <label>PASSWORD
+        <input className='loginInput' type="password" value={password} 
         onChange={(e)=>{setPassword(e.target.value)}}
         required/>
         </label>
-        <label>Confirm Password
-        <input type="password" value={matchPassword} 
+        <label>CONFIRM PASSWORD
+        <input className='loginInput' type="password" value={matchPassword} 
         onChange={(e)=>{setMatchPassword(e.target.value)}}
         required/>
         </label>
-        <button type="submit">Sign Up</button>
+        <button className='loginButton' type="submit">Continue</button>
         <ul className='errors'>{errors.map((error)=>{return <li key={error}>{error}</li>})}</ul>
         </form>
                

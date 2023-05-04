@@ -1,36 +1,46 @@
 .loginForm {
     display: flex;
     align-content: center;
+    justify-content: center;
     flex-direction: column;
-    width: 15vh;
-    height: 22vh;
+    width: 50vh;
+    height: 50vh;
     margin-left: 40%;
     margin-top: 10vh;
-    background-color: grey;
+    padding: 15px;
+    background-color: rgb(85, 85, 85);
     border-radius: 5px;
-    border: 1 px solid silver;
+
 }
 
 
-.button {
-    width: 100px;
-    height: 50px;
+.loginButton {
+    width: 80%;
+    height: 5vh;
     border-radius: 4px;
-    justify-self: center;
-    align-self: center;
     padding-bottom: 5px;
     margin-bottom: 5px;
-    background-color: rgb(91, 179, 247);
+    background-color: rgb(80, 57, 255);
     color: white;
+    justify-self: center;
+    align-self: center;
 }
 
 h2 {
     align-self: center;
-    color: white;
+    color: rgb(230, 230, 230);
 }
 
 label {
-    color: white;
+    color: rgb(200, 200, 200);
     padding: 3px;
+    margin: 3px;
     justify-self: center;
+    font-weight: bold;
+}
+
+.loginInput {
+    padding: 5px;
+    margin: 5px;
+    width: 90%;
 }
