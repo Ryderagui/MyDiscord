@@ -34,14 +34,14 @@ function ChannelEditForm ({channel, setOpenEditChannel}) {const dispatch = useDi
     return (
         <div className='communityFormBackground' onClick={()=>{setOpenEditChannel(false)}}>
         <div className='communityFormContainer'>
-        <form onSubmit={handleSubmit} onClick={(e)=>{e.stopPropagation()}}>
-        <h2>Edit New Channel</h2>
-        <label className='input'>Title
-        <input type="text" value={title} 
+        <form className='channelForm' onSubmit={handleSubmit} onClick={(e)=>{e.stopPropagation()}}>
+        <h2 className="channelFormTitle">Edit New Channel</h2>
+        <label className='channelFormName'>CHANNEL NAME
+        <input className='channelFormInput' type="text" value={title} 
         onChange={(e)=>{setTitle(e.target.value)}}
         required/>
         </label>
-        <button className="button" type="submit">Edit Channel</button>
+        <button className="channelFormButton" type="submit">Edit Channel</button>
         <ul className='errors'>{errors.map((error)=>{return <li key={error}>{error}</li>})}</ul>
         </form>
         </div>        

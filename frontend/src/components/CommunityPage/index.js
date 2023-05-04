@@ -78,7 +78,9 @@ function CommunityPage () {
             <div className="communityTitle">
                 <h2 className="titleText">{community && community.title}</h2>
                 <BsFillGearFill size={30} onClick={()=>{community && setOpenEdit(true)}} style={{display: verify ? "block" : "none"}} />
+                <div className="communityEditFormDiv">
                 {openEdit && <CommunityEditForm setOpenEdit={setOpenEdit}/>}
+                </div>
             </div>
             <div className="communityTextHeader">
                 <h3 className="textHeader">Text Channels</h3>

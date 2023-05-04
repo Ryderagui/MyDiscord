@@ -35,23 +35,13 @@ function CommunityForm ({setOpenModal}) {const dispatch = useDispatch();
         <div className='communityFormBackground' onClick={()=>{setOpenModal(false)}}>
         <div className='communityFormContainer'>
         <form onSubmit={handleSubmit} onClick={(e)=>{e.stopPropagation()}}>
-        <h2>Create a Community!</h2>
-        <label className='input'>Title
-        <input type="text" value={title} 
+        <h2 className='channelFormTitle'>Create a Community!</h2>
+        <label className='channelFormName'>TITLE
+        <input className='channelFormInput' type="text" value={title} 
         onChange={(e)=>{setTitle(e.target.value)}}
         required/>
         </label>
-        <label className='input'>Public
-        <input type="radio" name="privacy" value={true} checked={privacy}
-        onChange={(e)=>{setPrivacy(true)}}
-        />
-        </label>
-        <label className='input'>Private
-        <input type="radio" name="privacy" value={false} checked={privacy === false}
-        onChange={(e)=>{setPrivacy(false)}}
-        />
-        </label>
-        <button className="button" type="submit">Create Community</button>
+        <button className="channelFormButton" type="submit">Create Community</button>
         <ul className='errors'>{errors.map((error)=>{return <li key={error}>{error}</li>})}</ul>
         </form>
         </div>        

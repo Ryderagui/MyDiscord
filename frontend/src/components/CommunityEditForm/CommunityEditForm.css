@@ -1,28 +1,65 @@
-.communityEditBackground {
-    width: 100vw;
-    height: 100vh;
-    opacity: 1;
+.communityEditFormBackground {
+    position: absolute;
+    top: -10vh;
+    left: -10vw;
+    width: 110vw;
+    height: 110vh;
+    opacity: 0.8;
+    background-color: rgb(82, 82, 82);
     position: absolute;
     display: flex;
     justify-content: center;
-    margin-top: 10vh;
+    z-index: 97;
 }
 
-.communityFormContainer {
-    width: 33vh;
-    height: 33vh;
+.communityEditFormContainer {
+    width: 22vw;
+    height: 16vh;
+    align-items: left;
+    margin-top: 20vh;
     border-radius: 12px;
-    background-color: grey;
+    background-color: rgb(220, 220, 220);
     display: flex;
     flex-direction: column;
     padding: 20px;
+    z-index: 99;
 }
 
-.communityFormContainer > form {
+.communityEditFormTitle {
+    color:rgb(70, 70, 70);
+    align-self: left;
+    width: inherit;
+}
+
+.communityEditFormName input {
+    width: 100%;
+}
+
+.communityEditFormName {
+    color:rgb(70, 70, 70);
+    font-size: 14px;
+}
+
+.communityFormButton {
+    width: 30%;
+    height: 4vh;
+    border-radius: 4px;
+    padding-bottom: 5px;
+    background-color: rgb(80, 57, 255);
+    color: white;
     display: flex;
-    align-content: center;
+    justify-self: flex-end;
+    align-self: right;
+}
+
+.communityEditFormButtonDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.communityEditFormLabel{
+    height: inherit;
+    width: 20vw;
+    display: flex;
     flex-direction: column;
-    width: 30vh;
-    height: 30vh;
-    align-items: center;
 }

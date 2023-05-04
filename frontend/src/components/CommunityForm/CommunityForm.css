@@ -1,28 +1,56 @@
 .communityFormBackground {
-    width: 100vw;
-    height: 100vh;
-    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background-color: rgb(82, 82, 82);
     position: absolute;
     display: flex;
     justify-content: center;
+    z-index: 97;
 }
 
 .communityFormContainer {
-    width: 33vh;
-    height: 33vh;
+    width: 22vw;
+    height: 16vh;
+    align-items: left;
+    margin-top: 10vh;
     border-radius: 12px;
-    background-color: grey;
+    background-color: rgb(220, 220, 220);
     display: flex;
     flex-direction: column;
     padding: 20px;
-    z-index: 100;
+    z-index: 99;
 }
 
-.communityFormContainer > form {
+.channelFormTitle {
+    color:rgb(70, 70, 70);
+    align-self: left;
+    width: inherit;
+}
+
+.channelFormInput {
+    width: 100%;
+    height: 2vh;
+    align-self: left;
+}
+
+.channelFormName {
+    color:rgb(70, 70, 70);
+    font-size: 14px;
+}
+
+.channelFormButton {
+    width: 30%;
+    height: 4vh;
+    border-radius: 4px;
+    padding-bottom: 5px;
+    margin-bottom: 3px;
+    background-color: rgb(80, 57, 255);
+    color: white;
     display: flex;
-    align-content: center;
-    flex-direction: column;
-    width: 30vh;
-    height: 30vh;
-    align-items: center;
+    justify-self: flex-end;
+    align-self: right;
 }

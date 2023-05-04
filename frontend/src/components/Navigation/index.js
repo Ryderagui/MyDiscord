@@ -41,9 +41,9 @@ function Navigation ({channelid}) {
             </div>
             <div className="navbarRight">
             <div className="navLogo">
-            <NavLink to="/" className="logo">
+            {/* <NavLink to="/" className="logo">
             <div><FaDiscord size={25} color={"grey"}/></div>
-            </NavLink>
+            </NavLink> */}
             </div>
             {links}
             </div>

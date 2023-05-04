@@ -34,13 +34,13 @@ function ChannelForm ({setOpenNewChannel}) {const dispatch = useDispatch();
         <div className='communityFormBackground' onClick={()=>{setOpenNewChannel(false)}}>
         <div className='communityFormContainer'>
         <form onSubmit={handleSubmit} onClick={(e)=>{e.stopPropagation()}}>
-        <h2>Create New Channel</h2>
-        <label className='input'>Title
-        <input type="text" value={title} 
+        <h2 className="channelFormTitle">Create New Channel</h2>
+        <label className='channelFormName'>TITLE
+        <input className='channelFormInput' type="text" value={title} 
         onChange={(e)=>{setTitle(e.target.value)}}
         required/>
         </label>
-        <button className="button" type="submit">Add Channel</button>
+        <button className="channelFormButton" type="submit">Add Channel</button>
         <ul className='errors'>{errors.map((error)=>{return <li key={error}>{error}</li>})}</ul>
         </form>
         </div>        

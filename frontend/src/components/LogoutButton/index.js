@@ -11,7 +11,7 @@ function LogoutButton () {
         dispatch(sessionActions.logout());
     }
     return (
-        <button className='logoutButton' onClick={logout}>Log Out</button>
+        <button className='loginButton' onClick={logout}>Log Out</button>
     )
 };
 

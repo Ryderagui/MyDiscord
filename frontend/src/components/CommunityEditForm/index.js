@@ -39,27 +39,21 @@ function CommunityEditForm ({setOpenEdit}) {
     };
     //The radio button takes two clicks for Private
     return (
-        <div className='communityEditBackground' onClick={()=>{setOpenEdit(false)}}>
-        <div className='communityFormContainer'>
+        <div className='communityEditFormBackground' onClick={()=>{setOpenEdit(false)}}>
+        <div className='communityEditFormContainer'>
         <form onSubmit={handleSubmit} onClick={(e)=>{e.stopPropagation()}}>
-        <h2>Edit {community.title}</h2>
-        <label className='input'>Title
-        <input type="text" value={title} 
+        <h2 className="communityEditFormTitle">Edit {community.title}</h2>
+        <div className='communityEditFormLabel'>
+        <label className='communityEditFormName'>TITLE
+        <input classname='communityEditFormInput' type="text" value={title} 
         onChange={(e)=>{setTitle(e.target.value)}}
         required/>
         </label>
-        <label className='input'>Public
-        <input type="radio" name="privacy" value={true} checked={privacy}
-        onChange={(e)=>{setPrivacy(true)}}
-        />
-        </label>
-        <label className='input'>Private
-        <input type="radio" name="privacy" value={false} checked={privacy===false}
-        onChange={(e)=>{setPrivacy(false)}}
-        />
-        </label>
-        <button className="button" type="submit">Edit Community</button>
-        <button className="button" type="button" onClick={handleDelete}> Delete Community</button>
+        </div>
+        <div className="communityEditFormButtonDiv">
+        <button className="communityFormButton" type="button" onClick={handleDelete}> Delete Community</button>
+        <button className="communityFormButton" type="submit">Edit Community</button>
+        </div>
         <ul className='errors'>{errors.map((error)=>{return <li key={error}>{error}</li>})}</ul>
         </form>
         </div>        

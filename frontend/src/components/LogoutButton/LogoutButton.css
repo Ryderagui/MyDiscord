@@ -1,4 +1,11 @@
-.logoutButton {
-    width: 80px;
-    height: 20px;
+.loginButton {
+    width: 4vw;
+    height: 3vh;
+    border-radius: 4px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    background-color: rgb(80, 57, 255);
+    color: white;
+    justify-self: center;
+    align-self: center;
 }
