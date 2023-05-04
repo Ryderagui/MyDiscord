@@ -27,6 +27,7 @@
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
+    align-items: start;
 }
 
 .communityInviteHeader {
@@ -40,4 +41,8 @@
     align-self: center;
     justify-self: center;
     width: 80%;
+}
+
+.textHeader {
+    margin: 5px
 }

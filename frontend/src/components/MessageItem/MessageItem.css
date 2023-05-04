@@ -30,7 +30,13 @@
 
 .messageTop {
     display: flex;
-    justify-content: space-between;
+}
+
+.messageDate {
+    font-size: 13px;
+    margin-left: 10px;
+    text-align: center;
+    justify-content: center;
 }
 
 .messageTooltip {
@@ -38,7 +44,7 @@
     background-color: white;
     border-radius: 5px;
     top: -10px;
-    left: 70%;
+    left: 90%;
     margin: none;
     padding: 3px;
     height: 25px;
