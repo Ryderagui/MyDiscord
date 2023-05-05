@@ -37,8 +37,6 @@ function ChannelPage () {
             channel_id: parseInt(channelid)
         },{
             received:(payload)=>{
-                console.log(payload,"payload")
-                console.log(payload.message,"payload.message")
                 switch(payload.type){
                     case 'ADD_MESSAGE':
                         return dispatch(messageActions.addMessage(payload.message))
@@ -47,7 +45,6 @@ function ChannelPage () {
                 }
             }
         })
-        console.log(sub,"sub")
         return ()=> sub?.unsubscribe();
     },[dispatch,channelid])
 

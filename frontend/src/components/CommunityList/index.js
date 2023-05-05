@@ -25,7 +25,6 @@ function CommunityList () {
 
     useEffect(()=>{
         if((communities.length > 0) && communityid === undefined && channelid === undefined){
-            console.log(communities,"communities")
             history.push(`/users/${currentUserId}/${communities[0].id}`)
         }
     },[communities,channelid,history,currentUserId,communityid])
@@ -39,7 +38,6 @@ function CommunityList () {
                 dispatch(communityActions.fetchCommunities())
             }
         })
-        console.log(sub,"sub")
         return ()=> sub?.unsubscribe();
     },[dispatch,currentUserId])
 

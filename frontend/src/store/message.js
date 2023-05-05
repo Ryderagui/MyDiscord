@@ -63,7 +63,6 @@ export const fetchMessages = (communitiesId,channelId)=>async dispatch=>{
     let res = await csrfFetch(`/api/community/${communitiesId}/channels/${channelId}/messages`)
     if(res.ok){
         let data = await res.json();
-        console.log(data,"messages")
         dispatch(addMessages(data));
     }
 }

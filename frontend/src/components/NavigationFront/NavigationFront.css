@@ -53,9 +53,11 @@ li {
 .navFrontTitle {
     margin: 0px;
     width: 50%;
+    color: black;
 }
 
 .navFrontLogo{
     padding-top:1vh;
     width: 10vh;
+    color: black;
 }

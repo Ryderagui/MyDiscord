@@ -33,7 +33,6 @@ export const fetchUser = (userId)=> async dispatch =>{
 
     if(res.ok){
         let data = await res.json();
-        console.log(data,"user show")
         dispatch(addUser(data.user));
     }
 }

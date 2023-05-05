@@ -2,6 +2,16 @@
     padding-top: 20px;
     padding-left: 30px;
     padding-right: 30px;
+    display: flex;
     align-content: center;
-    justify-content: center;
+}
+
+.userUsername {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 5px;
+    padding: 3px; 
+    font-size: 20px;
+    font-weight: bold;
 }

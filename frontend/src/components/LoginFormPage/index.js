@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import "./LoginFormPage.css"
+import NavigationFront from '../NavigationFront';
 
 function LoginFormPage () {
     const dispatch = useDispatch();
@@ -51,8 +52,9 @@ function LoginFormPage () {
 
     return (
         <div className='backgroundLogin'>
+        <NavigationFront/>
         <form className="loginForm" onSubmit={handleSubmit}>
-        <h2>Log In</h2>
+        <h2 className='loginFormTitle'>Log In</h2>
         <label>USERNAME OR EMAIL
         <input  className='loginInput' type="text" value={credential} 
         onChange={(e)=>{setCredential(e.target.value)}}

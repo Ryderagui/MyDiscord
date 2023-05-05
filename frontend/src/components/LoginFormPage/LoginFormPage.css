@@ -26,9 +26,10 @@
     align-self: center;
 }
 
-h2 {
+.loginFormTitle {
     align-self: center;
     color: rgb(230, 230, 230);
+    font-size: 40px;
 }
 
 label {

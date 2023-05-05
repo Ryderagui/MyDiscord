@@ -44,8 +44,6 @@ function CommunityPage () {
             community_id: parseInt(communityid)
         },{
             received:(payload)=>{
-                console.log(payload,"payload")
-                console.log(payload.channel,"payload.channel")
                 switch(payload.type){
                     case 'ADD_CHANNEL':
                         return dispatch(channelActions.addChannel(payload.channel))
@@ -54,7 +52,6 @@ function CommunityPage () {
                 }
             }
         })
-        console.log(sub,"sub")
         return ()=> sub?.unsubscribe();
     },[dispatch,communityid])
     let verify;

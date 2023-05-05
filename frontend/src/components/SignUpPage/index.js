@@ -3,6 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import './SignUpPage.css'
+import NavigationFront from '../NavigationFront';
 function SignUpPage () {
     const dispatch = useDispatch();
     const currentUser = useSelector(sessionActions.getUser)
@@ -34,8 +35,10 @@ function SignUpPage () {
     return setErrors(['Confirm Password must match the Password provided'])
     };
     return (
+        <div>
+        <NavigationFront/>
         <form className='signInForm' onSubmit={handleSubmit}>
-        <h2>Create an Account</h2>
+        <h2 className='loginFormTitle'>Create an Account</h2>
         <label>EMAIL
         <input className='loginInput' type="text" value={email} 
         onChange={(e)=>{setEmail(e.target.value)}}
@@ -59,6 +62,7 @@ function SignUpPage () {
         <button className='loginButton' type="submit">Continue</button>
         <ul className='errors'>{errors.map((error)=>{return <li key={error}>{error}</li>})}</ul>
         </form>
+        </div>
                
     )
 };
