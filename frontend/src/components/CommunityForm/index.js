@@ -41,7 +41,7 @@ function CommunityForm ({setOpenModal}) {const dispatch = useDispatch();
         onChange={(e)=>{setTitle(e.target.value)}}
         required/>
         </label>
-        <button className="channelFormButton" type="submit">Create Community</button>
+        <button className="communityFormButton" type="submit">Create Community</button>
         <ul className='errors'>{errors.map((error)=>{return <li key={error}>{error}</li>})}</ul>
         </form>
         </div>        

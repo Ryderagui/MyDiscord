@@ -17,3 +17,8 @@
     width: auto;
     background-color: rgb(210, 210, 210);
 }
+
+.topDiscordLogo {
+    padding: 25px;
+    padding-bottom: 0px;
+}

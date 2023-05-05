@@ -4,12 +4,14 @@ import sessionReducer from './session';
 import communityReducer from './community';
 import channelReducer from './channel';
 import messageReducer from './message';
+import userReducer from './user';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     communities: communityReducer,
     channels: channelReducer,
-    messages: messageReducer
+    messages: messageReducer,
+    user: userReducer
 });
 
 let enhancer = applyMiddleware(thunk);

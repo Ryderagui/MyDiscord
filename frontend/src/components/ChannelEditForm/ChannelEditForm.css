@@ -18,7 +18,7 @@
     align-items: left;
     margin-top: 10vh;
     border-radius: 12px;
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(240, 240, 240);
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -27,8 +27,8 @@
 
 .channelFormTitle {
     color:rgb(70, 70, 70);
-    align-self: left;
     width: inherit;
+    margin: 5px;
 }
 
 .channelFormInput {

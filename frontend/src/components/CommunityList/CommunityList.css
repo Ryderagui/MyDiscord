@@ -1,11 +1,15 @@
 .communityList {
     align-content: center;
     justify-content: center;
-    padding-left: 20px;
+    padding-left: 25px;
 }
 
 .newCommunityButton {
     background-color: rgb(210, 210, 210);
     border: 0px;
-    margin: -5px;
+    margin: -10px;
+}
+
+.newCommunityButton:hover {
+    cursor: pointer;
 }

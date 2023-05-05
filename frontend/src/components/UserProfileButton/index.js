@@ -2,35 +2,28 @@ import {FaUserCircle} from "react-icons/fa";
 import "./UserProfileButton.css"
 import { useState,useEffect } from "react";
 import LogoutButton from "../LogoutButton";
+import { useDispatch, useSelector } from "react-redux";
+import * as sessionActions from '../../store/session';
+import * as userActions from '../../store/user'
+
 
 function UserProfileButton () {
-
-    const [showUserMenu,setShowUserMenu] = useState(false);
-    const openUserMenu = ()=>{
-        if (showUserMenu) return;
-        setShowUserMenu(true);
-    }
-
+    const dispatch = useDispatch();
+    const currentUserId = useSelector(sessionActions.getUser);
+    const [res,setRes] = useState(0);
+    const user = useSelector(userActions.getUser)
     useEffect(()=>{
-        if(!showUserMenu) return;
-        const closeUserMenu = () => {
-            setShowUserMenu(false);
-        }
-
-        document.addEventListener('click',closeUserMenu)
-
-        return ()=> {document.removeEventListener('click',closeUserMenu)}
-
-    },[showUserMenu])
+        setRes(dispatch(userActions.fetchUser(currentUserId)))
+    },[dispatch,currentUserId])
 
     return (
         <div className="userProfile">
-        <FaUserCircle size={50} onClick={openUserMenu}/>
-        {showUserMenu && (
-            <div>
-            <LogoutButton/>
-            </div>
-        )}
+        <div className="userLogo">
+        <FaUserCircle size={50}/>
+        </div>
+        <div>
+        {user && `${user.username}`}
+        </div>
         </div>
     )
 };

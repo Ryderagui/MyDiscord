@@ -8,7 +8,7 @@ import "./CommunityList.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import * as sessionActions from '../../store/session';
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-
+import consumer from "../../util/consumer"
 
 function CommunityList () {
     const dispatch = useDispatch();
@@ -29,6 +29,20 @@ function CommunityList () {
             history.push(`/users/${currentUserId}/${communities[0].id}`)
         }
     },[communities,channelid,history,currentUserId,communityid])
+
+    useEffect(()=>{
+        const sub = consumer.subscriptions.create({
+            channel: "UserChannel",
+            user_id: parseInt(currentUserId)
+        },{
+            received:()=>{
+                dispatch(communityActions.fetchCommunities())
+            }
+        })
+        console.log(sub,"sub")
+        return ()=> sub?.unsubscribe();
+    },[dispatch,currentUserId])
+
 
     return (
         <ul className="communityList">

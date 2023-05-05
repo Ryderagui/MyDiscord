@@ -10,7 +10,7 @@ import CommunityList from "../CommunityList";
 import CommunityPage from "../CommunityPage";
 import UserProfileButton from "../UserProfileButton";
 import ChannelPage from "../ChannelPage";
-
+import { FaDiscord } from "react-icons/fa";
 
 function UserPage () {
     const dispatch = useDispatch;
@@ -29,11 +29,14 @@ function UserPage () {
     return(
         <div className="container">
             <div className="list">
-            <UserProfileButton/>
+            <div className="topDiscordLogo">
+            <FaDiscord size={50}/>
+            </div>
             <CommunityList/>
             </div>
             <div className="communityShow">
             <CommunityPage />
+            <UserProfileButton/>
             </div>
             <div className="channelArea">
             <Navigation channelid={channelid}/>

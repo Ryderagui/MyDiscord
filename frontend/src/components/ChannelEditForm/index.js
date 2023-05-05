@@ -35,7 +35,7 @@ function ChannelEditForm ({channel, setOpenEditChannel}) {const dispatch = useDi
         <div className='communityFormBackground' onClick={()=>{setOpenEditChannel(false)}}>
         <div className='communityFormContainer'>
         <form className='channelForm' onSubmit={handleSubmit} onClick={(e)=>{e.stopPropagation()}}>
-        <h2 className="channelFormTitle">Edit New Channel</h2>
+        <h2 className="channelFormTitle">Edit Channel</h2>
         <label className='channelFormName'>CHANNEL NAME
         <input className='channelFormInput' type="text" value={title} 
         onChange={(e)=>{setTitle(e.target.value)}}

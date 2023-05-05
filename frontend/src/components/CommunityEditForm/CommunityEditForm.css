@@ -18,7 +18,7 @@
     align-items: left;
     margin-top: 20vh;
     border-radius: 12px;
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(240, 240, 240);
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -27,7 +27,7 @@
 
 .communityEditFormTitle {
     color:rgb(70, 70, 70);
-    align-self: left;
+    margin: 5px;
     width: inherit;
 }
 
@@ -41,15 +41,16 @@
 }
 
 .communityFormButton {
-    width: 30%;
-    height: 4vh;
+    width: 40%;
+    height: 5vh;
     border-radius: 4px;
     padding-bottom: 5px;
     background-color: rgb(80, 57, 255);
     color: white;
     display: flex;
-    justify-self: flex-end;
-    align-self: right;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
 }
 
 .communityEditFormButtonDiv {
