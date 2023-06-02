@@ -3,8 +3,10 @@ import {createConsumer} from '@rails/actioncable'
 
 let url = "ws://localhost:5000/cable"
 if (process.env.NODE_ENV === 'production'){
-    url = process.env.REDIS_URL;
+    console.log("In Production")
+    url = "redis://red-ch9fi0u7avjakq72fd70:6379";
 }
+console.log(process.env.REDIS_URL,"Redis URL")
 console.log(url,"url")
 const consumer = createConsumer(url)
 console.log(consumer,"Consumer")
