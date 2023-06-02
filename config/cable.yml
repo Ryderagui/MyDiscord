@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= redis://red-ch9fi0u7avjakq72fd70:6379 { "redis://localhost:6379/1" } %>
+  url: <%= redis://red-ch9fi0u7avjakq72fd70:6379 { "redis://localhost:6379" } %>
   channel_prefix: MyDiscord_production
