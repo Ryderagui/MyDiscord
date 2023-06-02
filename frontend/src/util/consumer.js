@@ -1,6 +1,7 @@
 import {createConsumer} from '@rails/actioncable'
+import * as ActionCable from '@rails/actioncable'
 
-
+ActionCable.logger.enabled = true;
 let url = "ws://localhost:5000/cable"
 let consumer = {};
 if (process.env.NODE_ENV === 'production'){
