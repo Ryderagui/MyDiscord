@@ -6,7 +6,7 @@ if (process.env.NODE_ENV === 'production'){
     url = process.env.REDIS_URL;
 }
 const consumer = createConsumer(url)
-
+console.log(consumer,"Consumer")
 export default consumer;
 
 
