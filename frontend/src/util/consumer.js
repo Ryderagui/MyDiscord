@@ -4,7 +4,7 @@ import {createConsumer} from '@rails/actioncable'
 let url = "ws://localhost:5000/cable"
 if (process.env.NODE_ENV === 'production'){
     console.log("In Production")
-    url = "wss://localhost:5000/cable";
+    url = "wss://red-ch9fi0u7avjakq72fd70:6379";
 }
 console.log(process.env.REDIS_URL,"Redis URL")
 console.log(url,"url")
