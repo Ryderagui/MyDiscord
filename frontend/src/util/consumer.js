@@ -7,7 +7,7 @@ let consumer = {};
 if (process.env.NODE_ENV === 'production'){
     console.log("In Production")
     url = "redis://red-ch9fi0u7avjakq72fd70:6379";
-    consumer = createConsumer('wss:https://revel-yz0c.onrender.com/cable')
+    consumer = createConsumer('ws://revel-yz0c.onrender.com/cable')
 }else {
     consumer = createConsumer(url)
 }
