@@ -9,10 +9,8 @@ if (process.env.NODE_ENV === 'production'){
     url = "redis://red-ch9fi0u7avjakq72fd70:6379";
     consumer = createConsumer('wss://revel-yz0c.onrender.com/cable')
 }else {
-    consumer = createConsumer(url)
+    consumer = createConsumer('/cable')
 }
-console.log(process.env.REDIS_URL,"Redis URL")
-console.log(url,"url")
 console.log(consumer,"Consumer")
 export default consumer;
 
