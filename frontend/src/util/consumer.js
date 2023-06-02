@@ -2,15 +2,7 @@ import {createConsumer} from '@rails/actioncable'
 import * as ActionCable from '@rails/actioncable'
 
 ActionCable.logger.enabled = true;
-let url = "ws://localhost:5000/cable"
-let consumer = {};
-if (process.env.NODE_ENV === 'production'){
-    console.log("In Production")
-    url = "redis://red-ch9fi0u7avjakq72fd70:6379";
-    consumer = createConsumer('wss://revel-yz0c.onrender.com/cable')
-}else {
-    consumer = createConsumer('/cable')
-}
+const consumer = createConsumer('/cable')
 console.log(consumer,"Consumer")
 export default consumer;
 
