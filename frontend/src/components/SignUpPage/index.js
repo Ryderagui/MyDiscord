@@ -35,7 +35,7 @@ function SignUpPage () {
     return setErrors(['Confirm Password must match the Password provided'])
     };
     return (
-        <div>
+        <div className='backgroundLogin'>
         <NavigationFront/>
         <form className='signInForm' onSubmit={handleSubmit}>
         <h2 className='loginFormTitle'>Create an Account</h2>

@@ -5,7 +5,7 @@ import LogoutButton from "../LogoutButton";
 import * as sessionActions from '../../store/session';
 import * as channelActions from '../../store/channel';
 import './NavigationFront.css';
-import {FaDiscord} from "react-icons/fa";
+import {FaDiscord, FaGithub, FaLinkedin} from "react-icons/fa";
 import { BiHash} from "react-icons/bi";
 
 
@@ -37,14 +37,22 @@ function NavigationFront ({channelid}) {
     return(
         <div className="navbarFront">
             <div className="navbarFrontLeft">
-            <div className="navFrontLogo">
-            <NavLink to="/" className="logo">
-                <div>
-                    <FaDiscord size={50} color={"black"}/> 
+                <div className="navFrontLogo">
+                <NavLink to="/" className="logo">
+                    <div>
+                        <FaDiscord size={40} color={"white"}/> 
+                    </div>
+                </NavLink>
                 </div>
-            </NavLink>
+                <h2 className="navFrontTitle">Revel</h2>
             </div>
-            <h2 className="navFrontTitle">Revel</h2>
+            <div className="navFrontMiddle">
+                <div className="navFrontLogo">
+                    <FaGithub size={35} color={"white"}></FaGithub>
+                </div>
+                <div className="navFrontLogo"> 
+                    <FaLinkedin size={35} color={"white"}></FaLinkedin>
+                </div>
             </div>
             <div className="navbarFrontRight">
             {links}

@@ -23,10 +23,10 @@ function Navigation ({channelid}) {
         links = (
             <div>
             <NavLink to="/login" className="link">
-            <button class="button2" >Log In</button>
+            <button class="buttonApp" >Log In</button>
             </NavLink>
             <NavLink to="/signup" className="link">
-            <button class="button2" >Sign Up</button>
+            <button class="buttonApp" >Sign Up</button>
             </NavLink>
             </div>
             

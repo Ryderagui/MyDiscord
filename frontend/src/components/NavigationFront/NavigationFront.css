@@ -28,26 +28,22 @@ li {
 .button2 {
     width: 70px;
     height: 30px;
-    border-radius: 4px;
+    border-radius: 15px;
     justify-self: center;
     align-self: center;
     padding-bottom: 5px;
     margin-bottom: 5px;
-    background-color: rgb(91, 179, 247);
-    color: white;
+    background-color: white;
+    color: black;
 }
 
 .navbarFrontLeft {
     color:rgba(30,30,30);
     display: flex;
-    align-self: left;
-    justify-self: left;
     font-weight: bold;
     padding: 5px;
     font-size: 30px;
     width: 30%;
-    font-weight: none;
-    font-style: none;
 }
 
 .navbarFrontRight {
@@ -61,7 +57,7 @@ li {
 .navFrontTitle {
     margin: 0px;
     width: 50%;
-    color: black;
+    color: white;
 }
 
 .navFrontLogo{
@@ -69,4 +65,10 @@ li {
     padding-left: 2vh;
     width: 10vh;
     color: black;
+}
+
+.navFrontMiddle {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
 }
