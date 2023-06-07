@@ -12,7 +12,7 @@
 .chatBox {
     display: flex;
     flex-direction: column;
-    height: 75vh;
+    height: 100%;
     flex: end;
     padding-top: 1vh;
     min-height: 50vh;

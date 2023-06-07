@@ -31,8 +31,12 @@
 }
 
 .communityInviteHeader {
-    margin-top: 10px;
+    margin-top: 3px;
     height: 3vh;
+}
+
+.communityInviteInput {
+    margin-top: 5px;
 }
 
 .inviteUsernameInput {

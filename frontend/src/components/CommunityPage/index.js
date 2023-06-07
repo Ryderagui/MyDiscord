@@ -91,9 +91,9 @@ function CommunityPage () {
             </div>
             <div className="communityInviteArea" style={{display: verify ? "block" : "none"}}>
             <div className="communityInviteHeader" >
-                <h3 className="textHeader">Invite by Username</h3>
+                <h3 className="textHeader">Invite by Username:</h3>
             </div>
-            <div>
+            <div className="communityInviteInput">
             <form onSubmit={handleInvite}>
             <input className="inviteUsernameInput" type="text" value={username} onChange={(e)=>{setUsername(e.target.value)}}/>    
             </form>    

@@ -44,7 +44,7 @@ function CommunityList () {
 
     return (
         <ul className="communityList">
-            <button className="newCommunityButton" onClick={()=>{setOpenModal(true)}}><AiFillPlusCircle size={65} color={"green"}/></button>
+            <div className="newCommunityButton" onClick={()=>{setOpenModal(true)}}>+</div>
             {openModal && <CommunityForm setOpenModal = {setOpenModal}/>}
             {communities.map((comm)=>{
                 return <CommunityItem key={comm.id} community={comm}/>
