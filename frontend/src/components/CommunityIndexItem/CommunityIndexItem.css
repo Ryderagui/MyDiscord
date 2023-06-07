@@ -1,0 +1,51 @@
+.communityItem {
+    display: flex;
+    justify-content: space-between;
+}
+
+.leftWrapper {
+    display: flex;
+    padding: 5px;
+    width: 40%;
+}
+
+.rightWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 8vw;
+}
+
+.communityCircle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7vh;
+    height: 7vh;
+    background: rgb(110, 110, 110);
+    color: white;
+    border-radius: 50%;
+    font-size: 30px;
+
+}
+
+.communityTitleItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    margin-left: 5%;
+}
+
+.membershipButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    color: white;
+    font-size: 15px;
+    border-radius: 50%;
+    margin-right: 10%;
+    width: 6vw;
+    height: 4vh;
+}

@@ -48,7 +48,28 @@ li {
 
 .navbarRight {
     display: flex;
-    width: 125px;
-    justify-content: center;
+    width: 40%;
+    justify-content: space-between;
     align-content: center;
+    margin-right: 3px;
+}
+
+.navLogo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#discoverLink {
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+}
+
+a {
+    color: black;
 }

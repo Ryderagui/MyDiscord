@@ -12,27 +12,7 @@ import { BiHash} from "react-icons/bi";
 function Navigation ({channelid}) {
     const currentUser = useSelector(sessionActions.getUser);
     const channel = useSelector(channelActions.getChannel(channelid));
-    let links;
-    if(currentUser){    
-        links = (
-            <>
-            <li className="navLogout"><LogoutButton/></li>
-            </>
-        )
-    }else {
-        links = (
-            <div>
-            <NavLink to="/login" className="link">
-            <button class="buttonApp" >Log In</button>
-            </NavLink>
-            <NavLink to="/signup" className="link">
-            <button class="buttonApp" >Sign Up</button>
-            </NavLink>
-            </div>
-            
-        )
-    }
-
+  
     return(
         <div className="navbar">
             <div className="navbarLeft">
@@ -40,12 +20,14 @@ function Navigation ({channelid}) {
             {channel && ` ${channel.title}`}
             </div>
             <div className="navbarRight">
-            <div className="navLogo">
-            {/* <NavLink to="/" className="logo">
-            <div><FaDiscord size={25} color={"grey"}/></div>
-            </NavLink> */}
-            </div>
-            {links}
+                <div id="discoverLink">
+                    <NavLink to={`/users/${currentUser}/0`}>
+                        Discover 
+                    </NavLink>   
+                </div>
+                <div className="navLogo">
+                    <LogoutButton/>
+                </div>
             </div>
         </div>
     )

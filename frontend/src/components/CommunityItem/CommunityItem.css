@@ -6,10 +6,9 @@
 }
 
 .communityLink {
-    justify-self: center;
+    display: flex;
     justify-content: center;
-    padding-left: 6px;
-    padding-top: 6px;
+    align-items: center;
     color: white;
     font-size: 30px;
     border-radius: 50%;

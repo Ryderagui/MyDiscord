@@ -1,14 +1,16 @@
 /* TODO Add site wide styles */
 
 #root {
-    background-image: url("./assets/WebsiteBackground3.jpg") ;
-    background-size: cover;
-    width: 100%;
-    height: 98vh;
+    width: 100vw;
+    height: 100vh;
     margin-top: 0;
-    padding: 1px;
+    padding: 0px;
 }
 
 body {
     margin: 0px;
+}
+
+a {
+     text-decoration: none;
 }

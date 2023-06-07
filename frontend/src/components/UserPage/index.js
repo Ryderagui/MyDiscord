@@ -11,6 +11,7 @@ import CommunityPage from "../CommunityPage";
 import UserProfileButton from "../UserProfileButton";
 import ChannelPage from "../ChannelPage";
 import { FaDiscord } from "react-icons/fa";
+import CommunityIndex from "../CommunityIndex";
 
 function UserPage () {
     const dispatch = useDispatch;
@@ -40,7 +41,7 @@ function UserPage () {
             </div>
             <div className="channelArea">
             <Navigation channelid={channelid}/>
-            <ChannelPage/>
+            {channelid ? <ChannelPage/> : <CommunityIndex/>}
             </div>
 
         </div>

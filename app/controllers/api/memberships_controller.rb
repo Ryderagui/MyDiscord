@@ -2,10 +2,13 @@ class Api::MembershipsController < ApplicationController
 
     def create
         puts params
+        @user_id = params[:userId];
         @username = params[:username];
-        @community_id = params[:community_id];
-        @user = User.find_by(username: @username)
-        @membership = Membership.new(member_id: @user.id, community_id: @community_id)
+        @community_id = params[:communityId];
+        if @username
+            @user_id = User.find_by(username: @username).id 
+        end
+        @membership = Membership.new(member_id: @user_id, community_id: @community_id)
 
         if (@user && @membership.save)
             UserChannel.broadcast_to(@user,{
