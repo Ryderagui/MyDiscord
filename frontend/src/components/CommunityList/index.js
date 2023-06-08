@@ -13,11 +13,10 @@ import consumer from "../../util/consumer"
 function CommunityList () {
     const dispatch = useDispatch();
     const history = useHistory();
-    const communities = useSelector(communityActions.getCommunities)
+    let communities = useSelector(communityActions.getCommunities)
     const [openModal,setOpenModal] = useState(false);
     const currentUserId = useSelector(sessionActions.getUser);
     const {communityid,channelid} = useParams();
-
 
     useEffect(()=>{
         dispatch(communityActions.fetchCommunities())

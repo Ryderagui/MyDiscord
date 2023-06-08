@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   mount ActionCable.server => '/cable'
 
   namespace :api, defaults: { format: :json} do
+    get '/users/community', to: "community#filter"
     resources :users, only: [:create, :index, :show]
     resources :community, only: [:index,:show,:create,:destroy, :update] do
       resources :channels, only: [:index,:show,:create,:destroy,:update] do

@@ -54,11 +54,14 @@ function CommunityPage () {
         })
         return ()=> sub?.unsubscribe();
     },[dispatch,communityid])
-    let verify;
+    let verifyUser = null;
     if(community){
-       verify = parseInt(currentUserId) === community.userId
+       verifyUser = parseInt(currentUserId) === community.userId
     }
-    
+    let verifyChannel = null;
+    if(channelid){
+        verifyChannel = channelid;
+    }
     const handleInvite = (e)=>{
         e.preventDefault();
 
@@ -74,14 +77,14 @@ function CommunityPage () {
         <div className="communityContainer">
             <div className="communityTitle">
                 <h2 className="titleText">{community && community.title}</h2>
-                <BsFillGearFill size={30} onClick={()=>{community && setOpenEdit(true)}} style={{display: verify ? "block" : "none"}} />
+                <BsFillGearFill size={30} onClick={()=>{community && setOpenEdit(true)}} style={{display: verifyUser ? "block" : "none"}} />
                 <div className="communityEditFormDiv">
                 {openEdit && <CommunityEditForm setOpenEdit={setOpenEdit}/>}
                 </div>
             </div>
             <div className="communityTextHeader">
                 <h3 className="textHeader">Text Channels</h3>
-                <AiOutlinePlus size={30} onClick={()=>{channel && setOpenNewChannel(true)}} style={{display: verify ? "block" : "none"}}/>
+                <AiOutlinePlus size={30} onClick={()=>{channel && setOpenNewChannel(true)}} style={{display: verifyUser ? "block" : "none"}}/>
                 {openNewChannel && <ChannelForm setOpenNewChannel={setOpenNewChannel}/>}
             </div>
             <div className="communityChannelList">
@@ -89,7 +92,7 @@ function CommunityPage () {
                     return <ChannelItem channel={chan} key={chan.id} setOpenNewChannel={setOpenNewChannel}/>
                 })}
             </div>
-            <div className="communityInviteArea" style={{display: verify ? "block" : "none"}}>
+            <div className="communityInviteArea" style={{display: verifyUser ? "block" : "none"}}>
             <div className="communityInviteHeader" >
                 <h3 className="textHeader">Invite by Username:</h3>
             </div>

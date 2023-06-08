@@ -4,7 +4,15 @@ class Api::CommunityController < ApplicationController
   def index 
     self.current_user
     @user = @current_user
-    @community = @user.communities
+    @community = Community.all
+    # Add Active record to fetch all communities from Membership
+    render :index
+  end
+
+  def filter
+    self.current_user
+    @user = @current_user
+    @community = User.communities
     # Add Active record to fetch all communities from Membership
     render :index
   end
