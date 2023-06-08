@@ -1,5 +1,11 @@
 .communityList {
     padding-left: 25px;
+    overflow: auto;
+    height: 80%;
+}
+
+.communityList::-webkit-scrollbar {
+    display: none;
 }
 
 .newCommunityButton {

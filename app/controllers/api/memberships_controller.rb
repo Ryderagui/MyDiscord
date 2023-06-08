@@ -4,19 +4,21 @@ class Api::MembershipsController < ApplicationController
         puts params
         @user_id = params[:userId];
         @username = params[:username];
-        @community_id = params[:communityId];
+        @community_id = params[:community_id];
         if @username
-            @user_id = User.find_by(username: @username).id 
+            @user = User.find_by(username: @username)
         end
-        @membership = Membership.new(member_id: @user_id, community_id: @community_id)
+        @membership = Membership.new(member_id: @user.id, community_id: @community_id)
 
-        if (@user && @membership.save)
+        if (@membership.save)
+            puts "New Member"
             UserChannel.broadcast_to(@user,{
                 message: "Added to server",
             })
 
             render json: {message:"Member Added"}
         else
+            puts "Issue with saving Membership"
             render json: {errors: ["Issue with adding membership"]}
         end
 
@@ -37,7 +39,7 @@ class Api::MembershipsController < ApplicationController
     private 
 
     def memberships_params 
-        params.require(:membership).permit(:username, :community_id)
+        params.require(:membership).permit(:username, :community_id,:userId)
     end
 
 

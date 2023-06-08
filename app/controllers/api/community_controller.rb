@@ -12,7 +12,7 @@ class Api::CommunityController < ApplicationController
   def filter
     self.current_user
     @user = @current_user
-    @community = User.communities
+    @community = @user.communities
     # Add Active record to fetch all communities from Membership
     render :index
   end

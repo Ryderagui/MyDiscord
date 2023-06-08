@@ -69,6 +69,7 @@ function CommunityPage () {
             username: username,
             communityId: communityid
         }
+      
         setUsername('')
         dispatch(membershipActions.createMembership(membership))
     }

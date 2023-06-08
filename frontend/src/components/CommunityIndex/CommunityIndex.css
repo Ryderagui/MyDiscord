@@ -1,0 +1,9 @@
+.discoverWrapper {
+    overflow: auto;
+    height: 88%;
+}
+
+
+.discoverWrapper::-webkit-scrollbar {
+    display: none;
+}

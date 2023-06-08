@@ -13,14 +13,24 @@ import consumer from "../../util/consumer"
 function CommunityList () {
     const dispatch = useDispatch();
     const history = useHistory();
-    let communities = useSelector(communityActions.getCommunities)
+    const [communities,setCommunities] = useState({});
     const [openModal,setOpenModal] = useState(false);
     const currentUserId = useSelector(sessionActions.getUser);
     const {communityid,channelid} = useParams();
+    const [communityArray,setCommunityArray] = useState([]);
+    console.log(communities,"User Community List")
+    async function updateCommunityList () {
+        let temp = await dispatch(communityActions.fetchUserCommunities())
+        setCommunities(temp);
+        setCommunityArray(Object.values(communities));
+    }
+    useEffect(()=>{
+        updateCommunityList();
+    },[])
 
     useEffect(()=>{
-        dispatch(communityActions.fetchCommunities())
-    },[dispatch])
+        setCommunityArray(Object.values(communities))
+    },[communities])
 
     useEffect(()=>{
         if((communities.length > 0) && communityid === undefined && channelid === undefined){
@@ -34,7 +44,7 @@ function CommunityList () {
             user_id: parseInt(currentUserId)
         },{
             received:()=>{
-                dispatch(communityActions.fetchCommunities())
+                updateCommunityList();
             }
         })
         return ()=> sub?.unsubscribe();
@@ -45,7 +55,7 @@ function CommunityList () {
         <ul className="communityList">
             <div className="newCommunityButton" onClick={()=>{setOpenModal(true)}}>+</div>
             {openModal && <CommunityForm setOpenModal = {setOpenModal}/>}
-            {communities.map((comm)=>{
+            {communityArray.length && communityArray.map((comm)=>{
                 return <CommunityItem key={comm.id} community={comm}/>
             })}
 
