@@ -14,7 +14,6 @@ function CommunityIndexItem ({community}) {
             userId: user.id,
             communityId: community.id
         }
-        console.log(membership,"membership")
         dispatch(createMembership(membership))
     }
 

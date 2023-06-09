@@ -8,7 +8,6 @@ import rightImage from "../../assets/splashbackground3.svg"
 import "./FrontPage.css"
 function FrontPage () {
     const currentUser = useSelector(sessionActions.getUser)
-    console.log(currentUser,"currentUser")
     
     if (currentUser){
         return <Redirect to={`/users/${currentUser}`}/>
