@@ -45,7 +45,7 @@
 
 .messageArea {
     overflow: auto;
-    height: inherit;
+    height: 100%;
     display: flex;
     flex-direction: column-reverse;
     

@@ -45,7 +45,6 @@ function ChannelPage () {
                 }
             }
         })
-        console.log(sub,"sub")
         return ()=> sub?.unsubscribe();
     },[dispatch,channelid])
 
