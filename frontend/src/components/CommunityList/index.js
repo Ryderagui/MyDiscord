@@ -55,7 +55,7 @@ function CommunityList () {
         <ul className="communityList">
             <div className="newCommunityButton" onClick={()=>{setOpenModal(true)}}>+</div>
             {openModal && <CommunityForm setOpenModal = {setOpenModal}/>}
-            {communityArray.length && communityArray.map((comm)=>{
+            {communityArray && communityArray.map((comm)=>{
                 return <CommunityItem key={comm.id} community={comm}/>
             })}
 

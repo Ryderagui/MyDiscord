@@ -45,7 +45,7 @@ function CommunityEditForm ({setOpenEdit}) {
         <h2 className="communityEditFormTitle">Edit {community.title}</h2>
         <div className='communityEditFormLabel'>
         <label className='communityEditFormName'>TITLE
-        <input classname='communityEditFormInput' type="text" value={title} 
+        <input className='communityEditFormInput' type="text" value={title} 
         onChange={(e)=>{setTitle(e.target.value)}}
         required/>
         </label>

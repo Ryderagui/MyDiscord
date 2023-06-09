@@ -29,6 +29,9 @@ class Api::CommunityController < ApplicationController
     if(@community.save)
         Membership.create!(member_id: @current_user.id, community_id: @community.id)
         Channel.create!(title: "General", communities_id: @community.id)
+        UserChannel.broadcast_to(@user,{
+                message: "New server",
+      })
         render :show
     else
         render json: { errors: @community.errors.full_messages}, status: :unprocessable_entity 
@@ -50,6 +53,9 @@ class Api::CommunityController < ApplicationController
     @community = Community.find_by(id: params["id"])
     puts @community
     if(Community.destroy(@community.id))
+      UserChannel.broadcast_to(@user,{
+                message: "Removed server",
+      })
       render json: {communityId: @community.id}
     else
       render json: { errors: ['Issue with Delete']}, status: :unprocessable_entity
