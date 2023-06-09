@@ -44,7 +44,6 @@ function CommunityList () {
             user_id: parseInt(currentUserId)
         },{
             received:()=>{
-                console.log("Message Receieved")
                 updateCommunityList();
             }
         })

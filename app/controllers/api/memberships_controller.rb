@@ -11,7 +11,6 @@ class Api::MembershipsController < ApplicationController
         @membership = Membership.new(member_id: @user.id, community_id: @community_id)
 
         if (@membership.save)
-            puts "New Member"
             UserChannel.broadcast_to(@user,{
                 message: "Added to server",
             })
