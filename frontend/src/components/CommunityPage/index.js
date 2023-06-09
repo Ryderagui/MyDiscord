@@ -18,13 +18,13 @@ function CommunityPage () {
     const currentUserId = useSelector(sessionActions.getUser);
     const dispatch = useDispatch();
     const history = useHistory();
-    const {communityid, channelid} = useParams();
+    let {communityid, channelid} = useParams();
     const community = useSelector(communityActions.getCommunity(communityid));
     const [openEdit,setOpenEdit] = useState(false);
     const channel = useSelector(channelActions.getChannels);
     const [openNewChannel,setOpenNewChannel] = useState(false);
     const [username,setUsername] = useState('');
-
+    communityid = parseInt(communityid);
     useEffect(()=>{
         if(communityid){
         dispatch(channelActions.fetchChannels(communityid))
@@ -73,22 +73,27 @@ function CommunityPage () {
         setUsername('')
         dispatch(membershipActions.createMembership(membership))
     }
-
+    let discover = "Discover";
+    if(communityid !== 0){
+        discover = "";
+    }
+    console.log(discover,"Discover");
+    console.log(communityid,"Comm ID")
     return (
         <div className="communityContainer">
             <div className="communityTitle">
-                <h2 className="titleText">{community && community.title}</h2>
+                <h2 className="titleText">{community && community.title}{discover}</h2>
                 <BsFillGearFill size={30} onClick={()=>{community && setOpenEdit(true)}} style={{display: verifyUser ? "block" : "none"}} />
                 <div className="communityEditFormDiv">
                 {openEdit && <CommunityEditForm setOpenEdit={setOpenEdit}/>}
                 </div>
             </div>
             <div className="communityTextHeader">
-                <h3 className="textHeader">Text Channels</h3>
+                <h3 className="textHeader" style={{display: communityid ? "block" : "none"}}>Text Channels</h3>
                 <AiOutlinePlus size={30} onClick={()=>{channel && setOpenNewChannel(true)}} style={{display: verifyUser ? "block" : "none"}}/>
                 {openNewChannel && <ChannelForm setOpenNewChannel={setOpenNewChannel}/>}
             </div>
-            <div className="communityChannelList">
+            <div className="communityChannelList" style={{display: communityid ? "block" : "none"}}>
                 {channel.map((chan)=>{
                     return <ChannelItem channel={chan} key={chan.id} setOpenNewChannel={setOpenNewChannel}/>
                 })}

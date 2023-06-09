@@ -19,7 +19,7 @@ function CommunityIndexItem ({community}) {
     }
 
     return (
-        <div className='communityItem'>
+        <div className='communityIndexItem'>
             <div className="leftWrapper">
                 <div className="communityCircle">
                 {community.title.substring(0,1)} 

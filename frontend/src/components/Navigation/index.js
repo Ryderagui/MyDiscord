@@ -7,11 +7,18 @@ import * as channelActions from '../../store/channel';
 import './Navigation.css';
 import {FaDiscord} from "react-icons/fa";
 import { BiHash} from "react-icons/bi";
-
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 function Navigation ({channelid}) {
     const currentUser = useSelector(sessionActions.getUser);
     const channel = useSelector(channelActions.getChannel(channelid));
+    const history = useHistory();
+    const currentUserId = useSelector(sessionActions.getUser)
+
+    const handleLink = (e)=>{
+        e.preventDefault();
+        history.push(`/users/${currentUserId}/0`)
+    }
   
     return(
         <div className="navbar">
@@ -20,11 +27,11 @@ function Navigation ({channelid}) {
             {channel && ` ${channel.title}`}
             </div>
             <div className="navbarRight">
-                <div id="discoverLink">
-                    <NavLink to={`/users/${currentUser}/0`}>
-                        Discover 
-                    </NavLink>   
-                </div>
+                <div className="discoverButtonWrapper">
+                    <div id="discoverLink" style={{display:"flex"}} onClick={handleLink}>
+                        Discover                            
+                    </div>
+                </div> 
                 <div className="navLogo">
                     <LogoutButton/>
                 </div>

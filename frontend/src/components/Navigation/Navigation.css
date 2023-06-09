@@ -63,13 +63,25 @@ li {
 
 #discoverLink {
     display: flex;
-    align-items: end;
+    width: 7vw;
+    height: 4vh;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background-color: rgb(80, 57, 255);
+    color: white;
+    flex-direction: column;
     justify-content: center;
-    text-decoration: none;
-    color: black;
-    font-size: 20px;
+    align-items: center;
 }
 
-a {
-    color: black;
+#discoverLink:hover{
+    cursor: pointer;
+}
+
+.discoverButtonWrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
 }

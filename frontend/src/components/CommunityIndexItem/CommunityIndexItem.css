@@ -1,6 +1,10 @@
-.communityItem {
+.communityIndexItem {
     display: flex;
     justify-content: space-between;
+}
+
+.communityIndexItem:hover {
+    background-color:  rgb(230, 230, 230);
 }
 
 .leftWrapper {
