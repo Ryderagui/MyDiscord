@@ -32,9 +32,10 @@ function FrontPage () {
                 </div>
             </div>
             <div className="bottomHalf">
-                    <div className="contentArea">
-                    <img className="frontLeftImage" src={screenShot}/>
-                        <div className="featuresTitle">Key Discord Clone Features</div>
+                    <img className="bottomLeftImage" src={screenShot}/>
+                    <div className="bottomContentArea">
+                   
+                        <div className="featuresTitle">Discord Clone Features</div>
                         <ul className="featuresList">
                             <li>Create, Edit and Delete Communities</li>
                             <li>Discover new Communities to join</li>

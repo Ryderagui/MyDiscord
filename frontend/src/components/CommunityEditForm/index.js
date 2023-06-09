@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import "./CommunityEditForm.css"
+import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 function CommunityEditForm ({setOpenEdit}) {
     const dispatch = useDispatch();
@@ -14,6 +15,7 @@ function CommunityEditForm ({setOpenEdit}) {
     const [title,setTitle] = useState(community.title);
     const [privacy,setPrivacy] = useState(community.privacy);
     const [errors, setErrors] = useState([]);
+    const history = useHistory();
 
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -35,7 +37,8 @@ function CommunityEditForm ({setOpenEdit}) {
     const handleDelete = (e) =>{
         e.preventDefault();
         setOpenEdit(false);
-        return dispatch(communityActions.deleteCommunities(community.id));
+        dispatch(communityActions.deleteCommunities(community.id));
+        history.push(`/users/${currentUser}/0`);
     };
     //The radio button takes two clicks for Private
     return (
