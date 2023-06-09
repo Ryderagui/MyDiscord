@@ -25,7 +25,7 @@ const sessionReducer = (state = initialState,action) => {
             return {...state, currentUserId: action.userId}
         case SET_CURRENT_USER:
             let user = action.user
-            console.log(user,"user")
+
             return {...state, currentUserId: action.user}
             default:
                 return state;
@@ -53,7 +53,6 @@ export const login = (user) => async (dispatch) => {
         })
     });
     const data = await res.json();
-    console.log(data,"data");
     dispatch(setCurrentUser(data.user.id))
     return res;
 }
@@ -103,7 +102,6 @@ export const restoreSession = ()=>async dispatch => {
     storeCSRFToken(res);
     const data = await res.json();
     storeCurrentUser(data.user);
-    console.log(data.user,"data.user");
     if(data.user){
     dispatch(setCurrentUser(data.user.id));
     }

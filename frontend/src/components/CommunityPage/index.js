@@ -77,8 +77,6 @@ function CommunityPage () {
     if(communityid !== 0){
         discover = "";
     }
-    console.log(discover,"Discover");
-    console.log(communityid,"Comm ID")
     return (
         <div className="communityContainer">
             <div className="communityTitle">

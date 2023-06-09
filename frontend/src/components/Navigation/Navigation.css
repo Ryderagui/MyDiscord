@@ -72,6 +72,9 @@ li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-width: 2px;
+    border-style: outset;
+    border-color: black;
 }
 
 #discoverLink:hover{

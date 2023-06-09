@@ -64,11 +64,15 @@ li {
     padding-top: 1vh;
     padding-left: 2vh;
     width: 10vh;
-    color: black;
+    color: rgb(80, 57, 255);
 }
 
 .navFrontMiddle {
     display: flex;
     justify-content: space-between;
     padding: 5px;
+}
+
+.navFrontLogo:hover {
+    cursor: pointer;
 }

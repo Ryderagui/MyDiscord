@@ -18,7 +18,7 @@ function CommunityList () {
     const currentUserId = useSelector(sessionActions.getUser);
     const {communityid,channelid} = useParams();
     const [communityArray,setCommunityArray] = useState([]);
-    console.log(communities,"User Community List")
+   
     async function updateCommunityList () {
         let temp = await dispatch(communityActions.fetchUserCommunities())
         setCommunities(temp);

@@ -5,10 +5,9 @@ import LogoutButton from "../LogoutButton";
 import * as sessionActions from '../../store/session';
 import * as channelActions from '../../store/channel';
 import './Navigation.css';
-import {FaDiscord} from "react-icons/fa";
 import { BiHash} from "react-icons/bi";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
-
+import {FaGithub, FaLinkedin} from "react-icons/fa";
 function Navigation ({channelid}) {
     const currentUser = useSelector(sessionActions.getUser);
     const channel = useSelector(channelActions.getChannel(channelid));
@@ -31,7 +30,14 @@ function Navigation ({channelid}) {
                     <div id="discoverLink" style={{display:"flex"}} onClick={handleLink}>
                         Discover                            
                     </div>
-                </div> 
+                </div>
+                <div className="navFrontLogo">
+                    <FaGithub size={35}></FaGithub>
+                </div>
+                <div className="navFrontLogo"> 
+                    <FaLinkedin size={35}></FaLinkedin>
+                </div>
+
                 <div className="navLogo">
                     <LogoutButton/>
                 </div>

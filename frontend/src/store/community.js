@@ -63,7 +63,6 @@ export const fetchCommunities = ()=>async dispatch=>{
     let res = await csrfFetch('/api/community/')
     if(res.ok){
         let data = await res.json();
-        console.log(data,"Communities")
         dispatch(addCommunities(data));
     }
 }

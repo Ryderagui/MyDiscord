@@ -1,9 +1,8 @@
 import {createConsumer} from '@rails/actioncable'
 import * as ActionCable from '@rails/actioncable'
 
-ActionCable.logger.enabled = true;
+// ActionCable.logger.enabled = true;
 const consumer = createConsumer('/cable')
-console.log(consumer,"Consumer")
 export default consumer;
 
 

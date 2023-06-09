@@ -16,3 +16,7 @@
     border: none;
 
 }
+
+.communityItem:hover {
+    cursor: pointer;
+}
