@@ -19,12 +19,18 @@ function CommunityPage () {
     const dispatch = useDispatch();
     const history = useHistory();
     let {communityid, channelid} = useParams();
+    communityid = parseInt(communityid);
     const community = useSelector(communityActions.getCommunity(communityid));
     const [openEdit,setOpenEdit] = useState(false);
     const channel = useSelector(channelActions.getChannels);
     const [openNewChannel,setOpenNewChannel] = useState(false);
     const [username,setUsername] = useState('');
-    communityid = parseInt(communityid);
+    
+    useEffect(()=>{
+        dispatch(communityActions.fetchCommunities())
+        
+    },[dispatch])
+    
     useEffect(()=>{
         if(communityid){
         dispatch(channelActions.fetchChannels(communityid))
