@@ -73,6 +73,6 @@ li {
     padding: 5px;
 }
 
-.navFrontLogo:hover {
+svg:hover {
     cursor: pointer;
 }

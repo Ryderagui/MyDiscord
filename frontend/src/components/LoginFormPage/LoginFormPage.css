@@ -52,3 +52,7 @@ label {
     background-image: url("../../assets/LoginBackground.png");
     background-size: cover;
 }
+
+button:hover {
+    cursor: pointer;
+}
