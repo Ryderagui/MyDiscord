@@ -55,7 +55,9 @@ function ChannelPage () {
             author_id: currentUserId,
             channel_id: channelid
         }
-        dispatch(messageActions.createMessages(communityid,message))
+        if(message.body.length !== ''){
+            dispatch(messageActions.createMessages(communityid,message))
+        }
         setBody('');
     }
     return(

@@ -1,24 +1,26 @@
-# README
+# Revel
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Live Website](https://revel-yz0c.onrender.com/)
 
-Things you may want to cover:
+## About
 
-* Ruby version
+Revel is a clone of the chat and groups application, Discord. The app is a full-stack application which recreates the main features of discord. The main functionality includes: user authentication, live-chat messaging, community and channel management, community discovery and memberships. 
 
-* System dependencies
+A new user can sign up, log in, join already available communities or create their own communitity. Meanwhile, any invites to new servers, creation of new chat channels or new messages are all sent live to the User. 
 
-* Configuration
+Techonology Overview:
 
-* Database creation
+* Languages: JavaScript, Ruby, CSS, HTML, SQL
+* Frontend: React w/ Redux context management 
+* Backend: Ruby on Rails
+* Database: PostgreSQL
+* Hosting: Render
 
-* Database initialization
+## Architecture Overview and Takeaways
 
-* How to run the test suite
+This project was build in a 14 day sprint and 5 day polish. The goal of the project was to learn to replicate and implement a live-chat application.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
+
+
