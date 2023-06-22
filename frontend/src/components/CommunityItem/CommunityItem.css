@@ -1,6 +1,10 @@
 .communityItem {
-    margin: 5px;
-    margin-left: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7vh;
+    height: 7vh;
+    margin-top: 1vh;
 }
 
 .communityLink {
@@ -8,7 +12,7 @@
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 30px;
+    font-size: 4vh;
     border-radius: 50%;
     background: rgb(110, 110, 110);
     width: 7vh;

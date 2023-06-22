@@ -1,7 +1,11 @@
 .communityList {
-    padding-left: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     overflow: auto;
     height: 80%;
+    padding-left: 2vh;
+    padding-right: 2vh;    
 }
 
 .communityList::-webkit-scrollbar {
@@ -14,7 +18,7 @@
     align-items: center;
     background-color: green;
     border-radius: 50%;
-    font-size: 40px;
+    font-size: 7vh;
     color: white;
     font-weight: bold;
     width: 7vh;

@@ -74,9 +74,7 @@ function ChannelPage () {
                 </div>
                 <div className="chatForm"> 
                     <form onSubmit={handleSubmit}>
-                    <label>
                     <input type="textarea" value={body} onChange={(e)=>{setBody(e.target.value)}}/>
-                    </label>
                     </form>
                     </div>
             </div>

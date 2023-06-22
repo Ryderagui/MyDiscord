@@ -19,7 +19,7 @@ function UserProfileButton () {
     return (
         <div className="userProfile">
         <div className="userLogo">
-        <FaUserCircle size={50}/>
+        <FaUserCircle className="userCircle"/>
         </div>
         <div className="userUsername">
         {user && `${user.username}`}

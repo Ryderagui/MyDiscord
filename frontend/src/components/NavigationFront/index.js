@@ -40,7 +40,7 @@ function NavigationFront ({channelid}) {
                 <div className="navFrontLogo">
                 <NavLink to="/" className="logo">
                     <div>
-                        <FaDiscord size={40} color={"white"}/> 
+                        <FaDiscord className="mainDiscordLogo" color={"white"}/> 
                     </div>
                 </NavLink>
                 </div>
@@ -48,10 +48,10 @@ function NavigationFront ({channelid}) {
             </div>
             <div className="navFrontMiddle">
                 <div className="navFrontLogo">
-                    <FaGithub size={35} color={"white"}></FaGithub>
+                    <FaGithub className="navFrontLogoLink" color={"white"}></FaGithub>
                 </div>
                 <div className="navFrontLogo"> 
-                    <FaLinkedin size={35} color={"white"}></FaLinkedin>
+                    <FaLinkedin className="navFrontLogoLink" color={"white"}></FaLinkedin>
                 </div>
             </div>
             <div className="navbarFrontRight">

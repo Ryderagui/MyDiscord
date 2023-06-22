@@ -22,23 +22,27 @@ function Navigation ({channelid}) {
     return(
         <div className="navbar">
             <div className="navbarLeft">
-            <BiHash/>
-            {channel && ` ${channel.title}`}
-            </div>
+                <div className="navHashWrapper">
+                    <BiHash className="iconNav"/>
+                </div>
+                <div className="navChannelTitle">
+                    {channel && ` ${channel.title}`}
+                </div>
+                </div>
             <div className="navbarRight">
                 <div className="discoverButtonWrapper">
                     <div id="discoverLink" style={{display:"flex"}} onClick={handleLink}>
                         Discover                            
                     </div>
                 </div>
-                <div className="navFrontLogo">
+                <div className="navLogo">
                     <NavLink to="https://github.com/Ryderagui">
-                    <FaGithub size={35}></FaGithub>
+                    <FaGithub className="iconNav" ></FaGithub>
                     </NavLink>
                 </div>
-                <div className="navFrontLogo"> 
+                <div className="navLogo"> 
                 <NavLink to="https://www.linkedin.com/in/raguilera994/">
-                    <FaLinkedin size={35}></FaLinkedin>
+                    <FaLinkedin className="iconNav"></FaLinkedin>
                 </NavLink>
                 </div>
 

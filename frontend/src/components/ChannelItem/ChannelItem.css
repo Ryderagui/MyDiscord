@@ -1,8 +1,33 @@
 .channelItemTitle {
-    font-size: 20px;
+    font-size: 2.5vh;
     color: black;
     text-decoration: none;
     width: 70%;
+}
+
+.channelItemHash {
+    height: 2.5vh;
+    width: 2.5vh;
+}
+
+.channelItemPencil {
+    height: 2vh;
+    width: 2vh;
+}
+
+.channelItemClose {
+    height: 2.5vh;
+    width: 2.5vh;
+}
+
+.channelItemClose:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.channelItemPencil:hover {
+    cursor: pointer;
+    color: red;
 }
 
 .channelItem{
@@ -12,10 +37,10 @@
 }
 
 .channelItem:hover{
-    cursor: pointer;
     background-color: rgb(215, 215, 215);
 }
 
 .channelItemIcons {
     display: flex;
+    padding-top: 3px;
 }

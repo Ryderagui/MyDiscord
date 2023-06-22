@@ -2,13 +2,18 @@
     display: flex;
     width: 7vw;
     height: 4vh;
-    border-radius: 4px;
-    padding-bottom: 5px;
-    margin-bottom: 3px;
+    margin-bottom: 1px;
+    border-radius: 5px;
     background-color: rgb(80, 57, 255);
     color: white;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-width: 2px;
+    border-style: outset;
+    border-color: black;
+    font-weight: bold;
+    font-size: 2vh;
 }
 
 .logoutButton:hover {

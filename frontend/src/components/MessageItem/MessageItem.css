@@ -24,7 +24,7 @@
 }
 
 .messageUser {
-    font-size: 18px;
+    font-size: 2.5vh;
     font-weight: bold;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .messageDate {
-    font-size: 13px;
+    font-size: 2vh;
     margin-left: 10px;
     text-align: center;
     justify-content: center;
@@ -47,7 +47,42 @@
     left: 90%;
     margin: none;
     padding: 3px;
-    height: 25px;
-    width: 50px;
+    height: 3vh;
+    width: 4vw;
     align-content: center;
+}
+
+.messageBody {
+    font-size: 2.5vh;
+}
+
+.messagePencil {
+    height: 2vh;
+    width: 2vh;
+}
+
+.messageClose {
+    height: 2.7vh;
+    width: 2.7vh;
+}
+
+.messageClose:hover {
+    color: red;
+}
+
+.messagePencil:hover {
+    color: red;
+}
+
+.pencilWrapper {
+    display: inline;
+    position: absolute;
+    top: 0.75vh;
+    left: 0.7vh;
+}
+
+.closeWrapper {
+    display: inline;
+    position: absolute;
+    left: 3.2vh;
 }

@@ -42,7 +42,12 @@ function MessageItem ({message}) {
         <div className="messageBox">
         {!edit && <div className="messageDefault" onMouseEnter={()=>{setHover(true)}} onMouseLeave={()=>{setHover(false)}}>
             <div className="messageTooltip" style={{display: (hover && verify) ? "inline-block" : "none"}}>
-                <BsFillPencilFill size={20} onClick={()=>{setEdit(true)}}/> <AiOutlineClose size={20} onClick={handleDelete}/>
+                <div className="pencilWrapper">
+                    <BsFillPencilFill className="messagePencil" onClick={()=>{setEdit(true)}}/>
+                </div>
+                <div className="closeWrapper">
+                    <AiOutlineClose className="messageClose" onClick={handleDelete}/>
+                </div>
             </div>
             <div className="messageTop">
             <div className="messageUser">{`${message.username}`}</div>

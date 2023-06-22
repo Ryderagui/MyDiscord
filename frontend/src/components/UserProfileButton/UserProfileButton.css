@@ -1,7 +1,7 @@
 .userProfile {
-    padding-top: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-top: 3vh;
+    padding-left: 1vw;
+    padding-right: 3vw;
     display: flex;
     align-content: center;
 }
@@ -10,8 +10,13 @@
     display: flex;
     align-items: center;
     text-align: center;
-    margin: 5px;
+    margin: 3px;
     padding: 3px; 
-    font-size: 20px;
+    font-size: 3vh;
     font-weight: bold;
+}
+
+.userCircle {
+    height: 7vh;
+    width: 7vh;
 }

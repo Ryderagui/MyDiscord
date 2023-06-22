@@ -1,8 +1,8 @@
 .communityTitle {
    margin: 0px;
-   padding: 3px;
+   padding-left: 1vw;
    border-bottom: 3px solid darkgray;
-   height: 41px;
+   height: 5vh;
    color: black;
    display: flex;
 }
@@ -11,6 +11,7 @@
     color: black;
     margin: 0px;
     margin-right: 20px;
+    font-size: 3vh;
 }
 
 .communityContainer {
@@ -48,9 +49,14 @@
 }
 
 .textHeader {
-    margin: 5px
+    margin: 5px;
+    font-size: 3vh;
 }
 
 .communityEditFormDiv {
     position: absolute
+}
+
+.gearCommunity {
+    margin-top: 3px;
 }

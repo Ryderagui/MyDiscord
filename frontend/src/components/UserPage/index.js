@@ -32,7 +32,7 @@ function UserPage () {
         <div className="container">
             <div className="list">
             <div className="topDiscordLogo">
-            <FaDiscord size={50}/>
+            <FaDiscord className="mainDiscordLogo"/>
             </div>
             <CommunityList/>
             </div>

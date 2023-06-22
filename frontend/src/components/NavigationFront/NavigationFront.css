@@ -26,8 +26,9 @@ li {
 }
 
 .button2 {
-    width: 70px;
-    height: 30px;
+    font-size: 2.2vh;
+    width: 6vw;
+    height: 4.5vh;
     border-radius: 15px;
     justify-self: center;
     align-self: center;
@@ -43,15 +44,14 @@ li {
     font-weight: bold;
     padding: 5px;
     font-size: 30px;
-    width: 30%;
 }
 
 .navbarFrontRight {
     display: flex;
-    width: 20%;
-    padding-top:1vh;
+    padding-top:3vh;
     justify-content: center;
     align-content: center;
+    margin-right: 2vw;
 }
 
 .navFrontTitle {
@@ -61,16 +61,22 @@ li {
 }
 
 .navFrontLogo{
-    padding-top: 3px;
+    padding-top: 1vh;
     padding-left: 2vh;
     width: 10vh;
+    height: 10vh;
     color: rgb(80, 57, 255);
+}
+
+.navFrontLogoLink {
+    width: 6vh;
+    height: 6vh;
 }
 
 .navFrontMiddle {
     display: flex;
     justify-content: space-between;
-    padding: 5px;
+    padding: 1vh;
 }
 
 svg:hover {

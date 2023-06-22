@@ -87,7 +87,7 @@ function CommunityPage () {
         <div className="communityContainer">
             <div className="communityTitle">
                 <h2 className="titleText">{community && community.title}{discover}</h2>
-                <BsFillGearFill size={30} onClick={()=>{community && setOpenEdit(true)}} style={{display: verifyUser ? "block" : "none"}} />
+                <BsFillGearFill className="gearCommunity iconNav" onClick={()=>{community && setOpenEdit(true)}} style={{display: verifyUser ? "block" : "none"}} />
                 <div className="communityEditFormDiv">
                 {openEdit && <CommunityEditForm setOpenEdit={setOpenEdit}/>}
                 </div>
