@@ -94,7 +94,7 @@ function CommunityPage () {
             </div>
             <div className="communityTextHeader">
                 <h3 className="textHeader" style={{display: communityid ? "block" : "none"}}>Text Channels</h3>
-                <AiOutlinePlus size={30} onClick={()=>{channel && setOpenNewChannel(true)}} style={{display: verifyUser ? "block" : "none"}}/>
+                <AiOutlinePlus className="iconNav" onClick={()=>{channel && setOpenNewChannel(true)}} style={{display: verifyUser ? "block" : "none"}}/>
                 {openNewChannel && <ChannelForm setOpenNewChannel={setOpenNewChannel}/>}
             </div>
             <div className="communityChannelList" style={{display: communityid ? "block" : "none"}}>

@@ -4,8 +4,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.8;
-    background-color: rgb(82, 82, 82);
+    background-color: rgba(82, 82, 82,0.8);
     position: absolute;
     display: flex;
     justify-content: center;
@@ -21,7 +20,7 @@
     background-color: rgb(240, 240, 240);
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 3vw;
     z-index: 99;
 }
 
@@ -39,7 +38,7 @@
 
 .channelFormName {
     color:rgb(70, 70, 70);
-    font-size: 14px;
+    font-size: 2vh;
 }
 
 .communityFormButton {
@@ -51,6 +50,7 @@
     background-color: rgb(80, 57, 255);
     color: white;
     display: flex;
-    justify-self: flex-end;
-    align-self: right;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8vh;
 }

@@ -41,7 +41,7 @@ function ChannelEditForm ({channel, setOpenEditChannel}) {const dispatch = useDi
         onChange={(e)=>{setTitle(e.target.value)}}
         required/>
         </label>
-        <button className="channelFormButton" type="submit">Edit Channel</button>
+        <button className="communityFormButton" type="submit">Edit Channel</button>
         <ul className='errors'>{errors.map((error)=>{return <li key={error}>{error}</li>})}</ul>
         </form>
         </div>        

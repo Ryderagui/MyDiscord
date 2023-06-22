@@ -4,8 +4,7 @@
     left: -10vw;
     width: 110vw;
     height: 110vh;
-    opacity: 0.8;
-    background-color: rgb(82, 82, 82);
+    background-color: rgba(82, 82, 82,0.8);
     position: absolute;
     display: flex;
     justify-content: center;
@@ -23,6 +22,13 @@
     flex-direction: column;
     padding: 20px;
     z-index: 99;
+    opacity: 1;
+}
+
+.communityEditFormContainer form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .communityEditFormTitle {

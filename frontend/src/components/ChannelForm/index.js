@@ -40,7 +40,7 @@ function ChannelForm ({setOpenNewChannel}) {const dispatch = useDispatch();
         onChange={(e)=>{setTitle(e.target.value)}}
         required/>
         </label>
-        <button className="channelFormButton" type="submit">Add Channel</button>
+        <button className="communityFormButton" type="submit">Add Channel</button>
         <ul className='errors'>{errors.map((error)=>{return <li key={error}>{error}</li>})}</ul>
         </form>
         </div>        
