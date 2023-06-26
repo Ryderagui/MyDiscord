@@ -23,7 +23,7 @@
     justify-content: center;
     align-items: center;
     width: inherit;
-    padding: 8px;
+    padding: 3px;
     background-color: rgb(230, 230, 230);
     border-radius: 6px;
 }
@@ -31,13 +31,13 @@
 .chatForm form {
     display: flex;
     width: 100%;
-    padding: 3px;
+    padding: 1px;
     justify-content: center;
 }
 
 .chatForm input {
-    width: 95%;
-    padding: 5px;
+    width: 100%;
+    padding: 2px;
 }
 
 .chatMessages {
