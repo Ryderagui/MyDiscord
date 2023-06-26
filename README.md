@@ -16,11 +16,19 @@ Techonology Overview:
 * Database: PostgreSQL
 * Hosting: Render
 
-## Architecture Overview and Takeaways
+## Technologies
 
-This project was build in a 14 day sprint and 5 day polish. The goal of the project was to learn to replicate and implement a live-chat application.
+### User Auth
 
+For user authentication, Revel utilizes Ruby on Rails and GEM packages to properly hash passwords for user veriification and authentication. 
 
+### Front End
 
+The frontend is built on the [Node.js](https://nodejs.org/en/about) runtime environment and utilizes [Webpack](https://webpack.js.org/) for module bundling, along with [React](https://react.dev/) and [Redux](https://redux.js.org/). React allows for a seemless one-page application while Redux handles front-end state. 
 
+### Back End
+The backend is built using Ruby on Rails which serves up the frontends production html file and allows for routing of API calls. The database is a PostgreSQL database hosted by Render. Additionally, the Ruby on Rails provides ActionCable to handle necessary WebSocket instances and communication. Rails requires a Redis component for the websocket functionality, also hosted on Render. 
 
+## Simultaneous Chat Application (Websocket)
+The entire single-page application is designed to seemlessly allow users to interact in real time. Messages can be sent, edited and deleted with immediate feedback to any other users in the same chat channel.
+The same functionality extends to creating, editing or deleting text channels within a given community. Lastly, any users invited to a community see the community immediately added to the list of available options.
