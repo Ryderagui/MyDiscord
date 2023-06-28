@@ -36,14 +36,14 @@ function Navigation ({channelid}) {
                     </div>
                 </div>
                 <div className="navLogo">
-                    <NavLink to="https://github.com/Ryderagui">
-                    <FaGithub className="iconNav" ></FaGithub>
-                    </NavLink>
+                    <a href="https://github.com/Ryderagui">
+                        <FaGithub className="iconNav" ></FaGithub>
+                    </a>
                 </div>
                 <div className="navLogo"> 
-                <NavLink to="https://www.linkedin.com/in/raguilera994/">
+                <a href="https://www.linkedin.com/in/raguilera994/">
                     <FaLinkedin className="iconNav"></FaLinkedin>
-                </NavLink>
+                </a>
                 </div>
 
                 <div className="navLogo">

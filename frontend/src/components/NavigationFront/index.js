@@ -47,12 +47,12 @@ function NavigationFront ({channelid}) {
                 <h2 className="navFrontTitle">Revel</h2>
             </div>
             <div className="navFrontMiddle">
-                <div className="navFrontLogo">
+                <a href="https://github.com/Ryderagui" className="navFrontLogo">
                     <FaGithub className="navFrontLogoLink" color={"white"}></FaGithub>
-                </div>
-                <div className="navFrontLogo"> 
+                </a>
+                <a href="https://www.linkedin.com/in/raguilera994/" className="navFrontLogo"> 
                     <FaLinkedin className="navFrontLogoLink" color={"white"}></FaLinkedin>
-                </div>
+                </a>
             </div>
             <div className="navbarFrontRight">
             {links}
