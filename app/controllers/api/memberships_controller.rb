@@ -8,8 +8,12 @@ class Api::MembershipsController < ApplicationController
         if @username
             @user = User.find_by(username: @username)
         end
+        @check = Membership.where(member_id:@user.id, community_id:@community_id)
         @membership = Membership.new(member_id: @user.id, community_id: @community_id)
-
+        puts @check
+        if(@check != [])
+            return render json: {message:"Member Already Joined"}
+        end
         if (@membership.save)
             UserChannel.broadcast_to(@user,{
                 message: "Added to server",
