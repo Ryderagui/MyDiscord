@@ -37,9 +37,13 @@ function ChannelItem ({channel}) {
 
     return ( <div className="channelItem" onMouseEnter={()=>{setHover(true)}} onMouseLeave={()=>{setHover(false)}}>
          {openEditChannel && <ChannelEditForm setOpenEditChannel={setOpenEditChannel} channel={channel}/>}
-        <div className="channelItemTitle" onClick={()=>{history.push(`/users/${currentUserId}/${communityid}/${channel.id}`)}}>
-        <BiHash className="channelItemHash"/>
-        {` ${channel.title}`}
+        <div className="channelItemWrapper" onClick={()=>{history.push(`/users/${currentUserId}/${communityid}/${channel.id}`)}}>
+            <div className="channelItemHash">
+                <BiHash className="channelItemHash"/>
+            </div>
+             <div className="channelItemTitle">
+                {` ${channel.title}`}
+            </div>   
         </div>
         <div className="channelItemIcons" style={{display: (hover && verify) ? "flex" : "none"}}>
         <BsFillPencilFill className="channelItemPencil" onClick={()=>{setOpenEditChannel(true)}} />

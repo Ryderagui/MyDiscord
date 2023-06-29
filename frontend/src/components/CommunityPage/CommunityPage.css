@@ -22,6 +22,7 @@
 .communityChannelList {
     padding: 3px;
     margin: 3px;
+    margin-left: 1vw;
 }
 
 .communityTextHeader {
@@ -38,10 +39,11 @@
 
 .communityInviteInput {
     margin-top: 5px;
+    margin-left: 1vw;
 }
 
 .inviteUsernameInput {
-    margin-left: 10px;
+    margin-left: 0.3vw;
     display: flex;
     align-self: center;
     justify-self: center;
@@ -49,8 +51,10 @@
 }
 
 .textHeader {
-    margin: 5px;
+    margin-top: 1px;
+    margin-left: 1vw;
     font-size: 3vh;
+    margin-bottom: 0px;
 }
 
 .communityEditFormDiv {

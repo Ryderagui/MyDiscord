@@ -2,10 +2,23 @@ import "./CommunityIndexItem.css"
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../store/user";
 import { createMembership } from "../../store/membership";
+import { useEffect } from "react";
 
-function CommunityIndexItem ({community}) {
+function CommunityIndexItem ({community, communitiesUser}) {
     const user = useSelector(getUser);
     const dispatch = useDispatch();
+    console.log(community, communitiesUser, "Community Data");
+    let verify = true;
+
+    if(communitiesUser){
+            let array = Object.values(communitiesUser);
+            array.forEach((comm)=>{
+            console.log(comm.id,community.id,"ID")
+            if(community.id === comm.id){
+                verify = false;
+            }})
+    }
+    
     const handleMember = (e)=>{
         e.preventDefault();
 
@@ -28,9 +41,9 @@ function CommunityIndexItem ({community}) {
                 </div>
             </div>
             <div className="rightWrapper">
-                <div className="membershipButton" onClick={handleMember}>
+                {verify && <div className="membershipButton" onClick={handleMember}>
                     Join
-                </div>
+                </div>}
             </div>
         </div>
         
