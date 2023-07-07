@@ -32,7 +32,7 @@ The backend is built using Ruby on Rails which serves up the frontends productio
 ## Simultaneous Chat Application (Websocket)
 The entire single-page application is designed to seemlessly allow users to interact in real time. Messages can be sent, edited and deleted with immediate feedback to any other users in the same chat channel.
 The same functionality extends to creating, editing or deleting text channels within a given community. Lastly, any users invited to a community see the community immediately added to the list of available options.
-```
+```javascript
 useEffect(()=>{
         const sub = consumer.subscriptions.create({
             channel: "ChatChannel",
