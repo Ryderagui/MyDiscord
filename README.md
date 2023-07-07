@@ -32,6 +32,10 @@ The backend is built using Ruby on Rails which serves up the frontends productio
 ## Simultaneous Chat Application (Websocket)
 The entire single-page application is designed to seemlessly allow users to interact in real time. Messages can be sent, edited and deleted with immediate feedback to any other users in the same chat channel.
 The same functionality extends to creating, editing or deleting text channels within a given community. Lastly, any users invited to a community see the community immediately added to the list of available options.
+
+The application uses a subscription method provided by ActionCable. A subscription is made to each channel and any new or deleted messages are handled accordingly. Message edits are managed by the message edit forms.
+When a Websocket payload is recieved the appropriate frontend state Redux actions are dispatched to update the user interface in  real time. 
+
 ```javascript
 useEffect(()=>{
         const sub = consumer.subscriptions.create({
