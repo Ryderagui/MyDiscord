@@ -26,6 +26,28 @@ For user authentication, Revel utilizes Ruby on Rails and GEM packages to proper
 
 The frontend is built on the [Node.js](https://nodejs.org/en/about) runtime environment and utilizes [Webpack](https://webpack.js.org/) for module bundling, along with [React](https://react.dev/) and [Redux](https://redux.js.org/). React allows for a seemless one-page application while Redux handles front-end state. 
 
+The frontend structure is a single page application with three main component sections: CommunityList, CommunityPage and ChannelPage. Users can select which community to view, select channels within that community and post messages in the selected channel. This orginazation also allows for seamless structure of the websocket subscriptions, one on each component. These subscriptions listen for new communties, new chat channels and new messages respectively. 
+
+```javascript
+ <div className="container">
+            <div className="list">
+            <div className="topDiscordLogo">
+            <FaDiscord className="mainDiscordLogo"/>
+            </div>
+            <CommunityList/>
+            </div>
+            <div className="communityShow">
+            <CommunityPage />
+            <UserProfileButton/>
+            </div>
+            <div className="channelArea">
+            <Navigation channelid={channelid}/>
+            {channelid ? <ChannelPage/> : <CommunityIndex/>}
+            </div>
+
+        </div>
+```
+
 ### Back End
 The backend is built using Ruby on Rails which serves up the frontends production html file and allows for routing of API calls. The database is a PostgreSQL database hosted by Render. Additionally, the Ruby on Rails provides ActionCable to handle necessary WebSocket instances and communication. Rails requires a Redis component for the websocket functionality, also hosted on Render. 
 
